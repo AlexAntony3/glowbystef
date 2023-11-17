@@ -20,6 +20,16 @@ class ReviewSerializer(serializers.ModelSerializer):
         source='owner.profile.profile_picture.url'
     )
 
+    def validate_review(self, value):
+        max_length = 800
+
+        if len(value) > max_length:
+            raise serializers.ValidationError(
+                'The review can only have a maximum of 800 characters.'
+            )
+        
+        return value
+
     def get_is_owner(self, obj):
         request = self.context['request']
         return request.user == obj.owner
@@ -28,5 +38,5 @@ class ReviewSerializer(serializers.ModelSerializer):
         model = Review
         fields = [
             'id', 'owner', 'service', 'review', 'rating', 'created_at',
-            'is_owner', 'profile_id', 'profile_image'
+            'is_owner', 'profile_id', 'profile_image', 'rating_filter'
         ]
