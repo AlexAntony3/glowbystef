@@ -40,3 +40,6 @@ class ReviewSerializer(serializers.ModelSerializer):
             'id', 'owner', 'service', 'review', 'rating', 'created_at',
             'is_owner', 'profile_id', 'profile_image', 'rating_filter'
         ]
+
+class ReviewDetailSerializer(ReviewSerializer):
+    service = serializers.ReadOnlyField(source='review.id')

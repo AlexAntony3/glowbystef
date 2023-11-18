@@ -1,8 +1,10 @@
-from rest_framework import status, permissions
+from django.http import Http404
+from rest_framework import status, permissions, generics
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from .models import Service, Review
-from .serializers import ServiceSerializer, ReviewSerializer
+from .serializers import ServiceSerializer, ReviewSerializer, ReviewDetailSerializer
+from gbs_api.permissions import IsOwnerOrReadOnly
 
 
 class ServiceList(APIView):
@@ -32,10 +34,16 @@ class ServiceList(APIView):
         )
 
 
-class ReviewList(APIView):
-    def get(self, request):
-        reviews = Review.objects.all()
-        serializer = ReviewSerializer(
-            reviews, many=True, context={'request': request}
-        )
-        return Response(serializer.data)
+class ReviewList(generics.ListCreateAPIView):
+    serializer_class = ReviewSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    queryset = Review.objects.all()
+
+    def perform_create(self, serializer):
+        serializer.save(owner=self.request.user)
+
+
+class ReviewDetail(generics.RetrieveUpdateDestroyAPIView):
+    permission_classes = [IsOwnerOrReadOnly]
+    serializer_class = ReviewDetailSerializer
+    queryset = Review.objects.all()
