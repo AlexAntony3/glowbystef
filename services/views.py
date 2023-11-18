@@ -1,4 +1,4 @@
-from rest_framework import status, permissions, generics
+from rest_framework import permissions, generics
 from .models import Service, Review
 from .serializers import ServiceSerializer, ReviewSerializer, ReviewDetailSerializer
 from gbs_api.permissions import IsOwnerOrReadOnly
