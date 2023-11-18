@@ -1,37 +1,18 @@
-from django.http import Http404
 from rest_framework import status, permissions, generics
-from rest_framework.response import Response
-from rest_framework.views import APIView
 from .models import Service, Review
 from .serializers import ServiceSerializer, ReviewSerializer, ReviewDetailSerializer
 from gbs_api.permissions import IsOwnerOrReadOnly
 
 
-class ServiceList(APIView):
+class ServiceList(generics.ListCreateAPIView):
     permission_classes = [
         permissions.IsAuthenticatedOrReadOnly
     ]
     serializer_class = ServiceSerializer
+    queryset = Service.objects.all()
 
-    def get(self, request):
-        services = Service.objects.all()
-        serializer = ServiceSerializer(
-            services, many=True, context={'request': request}
-        )
-        return Response(serializer.data)
-
-    def post(self, request):
-        serializer = ServiceSerializer(
-            data=request.data, context={'request': request}
-        )
-        if serializer.is_valid():
-            serializer.save()
-            return Response(
-                serializer.data, status=status.HTTP_201_CREATED
-            )
-        return Response(
-            serializer.errors, status=status.HTTP_400_BAD_REQUEST
-        )
+    def perform_create(self, serializer):
+        serializer.save()
 
 
 class ReviewList(generics.ListCreateAPIView):
