@@ -3,11 +3,26 @@ from .models import Service, Review
 
 
 class ServiceSerializer(serializers.ModelSerializer):
+    review_id = serializers.SerializerMethodField()
+    reviews_count = serializers.ReadOnlyField()
+
     class Meta:
         model = Service
         fields = [
             'id', 'name', 'description', 'price', 'image',
+            'review_id', 'reviews_count'
         ]
+    
+    def get_review_id(self, obj):
+        user = self.context['request'].user
+        if user.is_authenticated:
+            review = Review.objects.filter(
+                owner=user, service=obj
+            ).first()
+            return review.id if review else None
+        return None
+
+
 
 
 class ReviewSerializer(serializers.ModelSerializer):

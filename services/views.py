@@ -1,4 +1,5 @@
-from rest_framework import permissions, generics
+from django.db.models import Count
+from rest_framework import permissions, generics, filters
 from .models import Service, Review
 from .serializers import ServiceSerializer, ReviewSerializer, ReviewDetailSerializer
 from gbs_api.permissions import IsOwnerOrReadOnly
@@ -9,7 +10,20 @@ class ServiceList(generics.ListCreateAPIView):
         permissions.IsAuthenticatedOrReadOnly
     ]
     serializer_class = ServiceSerializer
-    queryset = Service.objects.all()
+    queryset = Service.objects.annotate(
+        reviews_count=Count('reviews', distinct=True)
+    )
+    filter_backends = [
+        filters.OrderingFilter,
+        filters.SearchFilter,
+    ]
+    search_fields = [
+        'name',
+    ]
+    ordering_fields = [
+        'reviews_count',
+    ]
+
 
     def perform_create(self, serializer):
         serializer.save()
