@@ -4,13 +4,23 @@ from .models import Gallery, Like
 
 
 class GallerySerializer(serializers.ModelSerializer):
+    like_id = serializers.SerializerMethodField()
 
     class Meta:
         model = Gallery
         fields = [
             'id' ,'owner', 'created_at', 'description',
-            'image', 'title', 
+            'image', 'title', 'like_id',
         ]
+
+    def get_like_id(self, obj):
+        user = self.context['request'].user
+        if user.is_authenticated:
+            like = Like.objects.filter(
+                owner=user, gallery=obj
+            ).first()
+            return like.id if like else None
+        return None
 
 
 class LikeSerializer(serializers.ModelSerializer):
