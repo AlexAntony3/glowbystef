@@ -1,4 +1,5 @@
-from rest_framework import permissions, generics
+from django.db.models import Count
+from rest_framework import permissions, generics, filters
 from gbs_api.permissions import IsOwnerOrReadOnly
 from .models import Gallery, Like
 from .serializers import GallerySerializer, LikeSerializer
@@ -9,7 +10,16 @@ class GalleryList(generics.ListCreateAPIView):
         permissions.IsAuthenticatedOrReadOnly
     ]
     serializer_class = GallerySerializer
-    queryset = Gallery.objects.all()
+    queryset = Gallery.objects.annotate(
+        likes_count=Count('likes', distinct=True)
+    ).order_by('-created_at')
+    filter_backends = [
+        filters.OrderingFilter
+    ]
+    ordering_fields = [
+        'likes_count',
+        'likes__created_at',
+    ]
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)

@@ -5,12 +5,13 @@ from .models import Gallery, Like
 
 class GallerySerializer(serializers.ModelSerializer):
     like_id = serializers.SerializerMethodField()
+    likes_count = serializers.ReadOnlyField()
 
     class Meta:
         model = Gallery
         fields = [
             'id' ,'owner', 'created_at', 'description',
-            'image', 'title', 'like_id',
+            'image', 'title', 'like_id', 'likes_count'
         ]
 
     def get_like_id(self, obj):
