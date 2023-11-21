@@ -1,3 +1,4 @@
+from django.contrib.humanize.templatetags.humanize import naturaltime
 from rest_framework import serializers
 from .models import Service, Review
 
@@ -34,6 +35,7 @@ class ReviewSerializer(serializers.ModelSerializer):
     profile_image = serializers.ReadOnlyField(
         source='owner.profile.profile_picture.url'
     )
+    created_at = serializers.SerializerMethodField()
 
     def validate_review(self, value):
         max_length = 800
@@ -49,11 +51,14 @@ class ReviewSerializer(serializers.ModelSerializer):
         request = self.context['request']
         return request.user == obj.owner
 
+    def get_created_at(self, obj):
+        return naturaltime(obj.created_at)
+
     class Meta:
         model = Review
         fields = [
             'id', 'owner', 'service', 'review', 'rating', 'created_at',
-            'is_owner', 'profile_id', 'profile_image', 'rating_filter'
+            'is_owner', 'profile_id', 'profile_image', 'rating_filter',
         ]
 
 class ReviewDetailSerializer(ReviewSerializer):
