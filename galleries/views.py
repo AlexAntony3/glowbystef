@@ -1,5 +1,6 @@
 from django.db.models import Count
 from rest_framework import permissions, generics, filters
+from django_filters.rest_framework import DjangoFilterBackend
 from gbs_api.permissions import IsOwnerOrReadOnly
 from .models import Gallery, Like
 from .serializers import GallerySerializer, LikeSerializer
@@ -16,6 +17,10 @@ class GalleryList(generics.ListCreateAPIView):
     filter_backends = [
         filters.OrderingFilter,
         filters.SearchFilter,
+        DjangoFilterBackend,
+    ]
+    filterset_fields = [
+        'likes__owner__profile'
     ]
     search_fields = [
         'title',
@@ -40,7 +45,7 @@ class LikeList(generics.ListCreateAPIView):
         serializer.save(owner=self.request.user)
 
 
-class likeDetail(generics.RetrieveDestroyAPIView):
+class LikeDetail(generics.RetrieveDestroyAPIView):
     permission_classes = [IsOwnerOrReadOnly]
     serializer_class = LikeSerializer
     queryset = Like.objects.all()
