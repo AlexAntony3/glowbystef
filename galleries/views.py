@@ -33,6 +33,12 @@ class GalleryList(generics.ListCreateAPIView):
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
 
+
+class GalleryDetail(generics.RetrieveUpdateDestroyAPIView):
+    permission_classes = [IsOwnerOrReadOnly]
+    serializer_class = GallerySerializer
+    queryset = Gallery.objects.all()
+
     
 class LikeList(generics.ListCreateAPIView):
     permission_classes = [

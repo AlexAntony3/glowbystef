@@ -29,6 +29,11 @@ class ServiceList(generics.ListCreateAPIView):
         serializer.save()
 
 
+class ServiceDetail(generics.RetrieveDestroyAPIView):
+    serializer_class = ServiceSerializer
+    queryset = Service.objects.all()
+
+
 class ReviewList(generics.ListCreateAPIView):
     serializer_class = ReviewSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
