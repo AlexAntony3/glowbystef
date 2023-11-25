@@ -1,110 +1,241 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# GlowByStef
 
-Welcome AlexAntony3,
+(Add image of different screen sizes display)
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+## Introduction
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+GlowByStef is a full-stack application dedicated to my wife's business as a make-up artist. 
 
-## Gitpod Reminders
+The app allows a user to sign up, view a gallery of work completed, filter through type of make up required e.g. weddings and birthdays. It also allows logged in users to have full CRUD functionality (create, read, use, delete) as they are able to post in a reviews section, sharing their experience, images and complete a star rating. 
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+## Agile Methodologies
 
-`python3 -m http.server`
+Agile principles were used throughout this project, the main uses of agile were the Kanban system and MoSCoW prioritisation method.
 
-A blue button should appear to click: _Make Public_,
+The Kanban system was something that allowed me to stay on target. The Kanban system was separated into 5 categories:
 
-Another blue button should appear to click: _Open Browser_.
+ - Backlog - Where all initial issues are added
+ - To-Do - As the name suggest, the issues I will need to work on in the project
+ - In-Progress - The issues, I decided to work on.
+ - Done - All issues that have been completed
+ - Bug - All resolved/unresolved bugs are entered into this section.
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+This system allowed me to write in all my user stories and then make sure that all the requirements for the user stories to be completed could be remembered and amended as required. As I was learning throughout this project, additional user stories and other items were added onto the Kanban system. 
 
-A blue button should appear to click: _Make Public_,
+The MoSCoW method of prioritisation was used in this projection in conjunction with the Kanban system. All issues and items added to the board contained a label which detailed if the item was a **must have** **should have**  **could have**.  More priority  and time were given to the must have and vice versa for the could have items. 
 
-Another blue button should appear to click: _Open Browser_.
+(Add picture of kanban with labels here)
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+## User Experience (UX) 
 
-To log into the Heroku toolbelt CLI:
+### User Stories (logged out)
+- As a logged out user, I want to be able to be able to see the home page   so that I can see an initial introduction to the application.
+- As a logged out user, I want to be able to have the option to sign up so that I can access all the restricted content
+- As a logged out user, I want to be able to sign in so that I can access all the restricted content.
+- As a logged out user, I want to see validation upon not entering sufficient details in the form requirements so that I can have a safe and secure account.
+- As a logged out user, I want to see validation when the correct details have not been entered when attempting to log in so that I am reminded that I have entered the wrong details.
+- As a logged out user, I want to be able to click on the logo so that I am redirected to the home page.
+- As a logged out user, I want to be able to see a services page so that I can see what services Stef offers.
+- As a logged out user, I want to be able click on the services so that I can see more details of the service.
+- As a logged out user, I want to be able to click on the socials in the footer so that I can follow the Stef on social media.
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+### User Stories (logged in)
+- As a logged in user, I want to have a success message displayed when I log in so that I am aware that the log in was successful.
+- As a logged in user, I want the corresponding accessible profile picture to appear so that I am aware that I am logged in to the correct account.
+- As a logged in user, I want the navigation bar to present itself with different navigation links so that I can access the user restricted pages.
+- As a logged in user, I want to be able create a review so that I can leave my feedback on a service.
+- As a logged in user, I want to edit my review so that I  can change the review.
+- As a logged in user, I want to be able to view all reviews left for Stef so that I can make an informed decision on contacting her for a make-up consultation. 
+- As a logged in user, I want to be able to delete my review so that I can remove it from being seen.
+- As a logged in user, I want to be able to save Stef's make up styles so that I can come back to it later.
+- As a logged in user, I want to be able to view all of my saved items so that I can remind myself of what I saved.
+- As a logged in user, I want to be able to filter through my saved items so that I can find what I am specifically looking for.
+- As a logged in user, I want to access my profile data when I click on the profile image so that I can see the profile details.
+### Developer Goals
+- The site should restrict users from entering invalid data into forms 
+- The form must contain placeholder text in all fields to make it easier for the user to use.
+- A notification must appear when an account has been created.
+- A notification must appear when a user has logged in.
+- A notification must appear when a user has logged out.
+- The application must be responsive to varying screen sizes. 
+- The colour scheme used in the application must be consistent and appealing to look at.
+### Expectations
+- I expect a logged in user to have full CRUD functionality of reviews.
+- I expect there to be a clear restriction in access for logged in and logged out users.
+- I expect the any user to be able to see the services provided by GlowByStef.
+- I expect all user data to be stored safely in django-rest backend.
+- I expect all the front end to be completed using React and React-Bootstrap.
+### Requirements
+- The application must have clearly legible font.
+- The application must have attractive to look at.
+- The application must be intuitive, using icons that are the industry standard.
+- The application must have all working functions.
+- The application must have clear validation.
+- The application must provide error messages and error pages when incorrectly accessed.
+- The application must restrict content and not allow logged out users to access logged in utilities.
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+## Design & Structure
 
-------
+The design aspect of the project was something that I felt I was more confident with than previous projects. I've learned how to find and utilise contrasting and matching colours which entices the user to stay and use the application. 
 
-## Release History
+The main decisions made in the design elements were influenced mainly by research conducted. The research was completed by comparing multiple applications that had a similar user stories as my own. From my research, it was obvious to see that the main principle followed by all of the applications was minimalistic. 
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+Another main component that was researched was CRUD functionality for users. It was identified that the vast majority of functionality was displayed with easily recognised icons. This is something that is implemented into the application. 
 
-**September 20 2023:** Update Python version to 3.9.17.
+### Colour Scheme
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+As stated previously, the main element of design is being minimalistic. However whilst being minimalistic, contrasting colours are required for the highest level of engagement and to keep the interest alive. The colours used are also symbolic of colours often observed in make up palettes. The colour scheme and palette were created using [Coolors](https://coolors.co/?home "Coolors").
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+(Add picture of coolors colour)
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+| Colour (HEX) | Use |
+|--|--|
+| CDB4DB | This is a light colour used for cards, various backgrounds and to match the remainder of the page. |
+| FFC8DD | This is a light colour used for cards, various backgrounds and to match the remainder of the page.   |
+| FFAFCC | This is a slightly darker colour than the previous colours which will be used for borders and to show clear separation. |
+| BDE0FE | This is a light colour used for cards, various backgrounds and to match the remainder of the page. This is also used as text colour. |
+| A2D2FF | This is a light colour used for cards, various backgrounds and to match the remainder of the page. This is also used as text colour. |
+| 24517C | This is dark tone that will be used for headers and footers |
+| 1F2224 | This is the colour that will be used as the font colour for headers. |
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+### Icons
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+Multiple icons are used throughout the webapge, this is to increase the user experience and make the purpose of buttons / information sources easier to understand. [Font Awesome](https://fontawesome.com/ "Font Awesome") was used as the source of the icons.
+[Favicon](https://favicon.io "Favicon") was also another source of icon used however this supplied an identifier for the website when a user visits. The icon is recognisable and is indicative of the type of website.
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+### Font
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+The aim of the application is to display elegance, vibrance and professionalism. All of these requirements were considered when picking the font. The fonts that have been decided for the project are:
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+- [Dancing Script](https://fonts.google.com/specimen/Dancing+Script "Dancing Script") - A font used very minimally throughout the project but used for some text that require an extra flare.
+- [Roboto](https://fonts.google.com/specimen/Roboto "Roboto") - The main eye catching font used for titles and descriptions.
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+Both of theses fonts were found using [google fonts](https://fonts.google.com/ "google fonts")
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+### Breakpoints
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+For breakpoints within this website, there were some minor aspects using media queries however the vast majority of the breakpoints were controlled using bootstrap elements. The main requirement of the breakpoints were to set a limit, that being that as per bootstrap documentation, the minimum size the website must be functional and responsive to is 320px.
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+### Wireframes
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+(Add wireframes and descriptions)
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+## Database Structure
 
-------
+(Add all models and database schema)
 
-## FAQ about the uptime script
+## Existing Features
 
-**Why have you added this script?**
+(Add titles, descriptions and images of each feature)
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+## Future Implementations
 
-**How will this affect me?**
+(add future implementations to this section)
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+## Technologies Used
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+### Languages
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+### Libraries and Frameworks
 
-**So….?**
+### Tools
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+## Testing
 
-**Can I opt out?**
+(Add all testing and screenshots)
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+## Deployment
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
+## Local Development
+### Forking
+If you would like to fork any repositories, follow the steps below:
+* Log in to **GitHub**.
+* Navigate to the [GlowByStef](https://github.com/AlexAntony3/glowbystef "glowbystef"). 
+* At the top of the page, locate the **fork** icon
+* Click on the **downward** icon next to fork and press **create a new fork**.
+* Select an **owner** for the repository
+* **Change** the name of the repository if required
+* Choose whether to **copy** all branches or just the `default` branch. 
+* Click the Create Fork button and you have forked my repository.
 
-**Anything more?**
+### Cloning
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+If you would like to clone any repositories, follow the steps below:
+* Log in to **GitHub**
+* Access the required repository or my repository by clicking the following link: [GlowByStef](https://github.com/AlexAntony3/glowbystef "glowbystef")
+* Click on the `<> Code` button.
+* In the **local** tab, select the **HTTPS** button and copy the URL.
+* Open up a new workspace
+* Use the `git clone` command In the command line of the workspace, paste in the copied URL. It should look like this:
 
----
+        git clone https://github.com/YOURUSERNAME/YOURREPOSITORY
 
-Happy coding!
+* Press **Enter** and the repository will be cloned!.
+
+
+* After forking the repository, follow the cloning method to continue with development.
+* Once you're repository is set up, open the repository on **Gitpod** and you need to download all the libraries and frameworks.
+
+        pip3 install -r requirements.txt
+
+* Create an **env.py** in the root directory and enter the following:
+
+**Note: the values for each key must not be shared and must be the same as what's entered into Heroku **
+
+    os.envrion['DATABASE_URL']  = "elephantSQL url"
+    os.environ['SECRET_KEY'] = "secret key you created"
+    os.environ['CLOUDINARY_URL'] = "APU url from cloudinary, **remember to remove the CLOUDINARY_URL=' from the URL**"
+
+* Now migrate all the models by entering:
+
+        python3 manage.py migrate
+
+* The next step is to create a superuser to be able to access the Django admin panel. 
+
+        python manage.py createsuperuser
+
+When creating a superuser, enter a username, email (optional) and password twice. When typing the password, it will not appear but it is being registered.
+
+* now we're nearly done! in the **settings.py** add:
+
+        .herokuapp.com,localhost
+
+* Finally commit and push the changes and you're good to go! 
+
+**Note: Make sure that the env.py variables are the same as what's entered into the config vars on Heroku. If this has not been completed yet, follow the next steps.**
+
+### Heroku Set up
+* Log in to your [Heroku](www.heroku.com) account and create an app. Choose an original name and select an appropriate region.
+
+* Go to the **settings** page and click **Reveal Config Vars** in the key and port values type the following:
+
+| Key | Value  |
+|--|--|
+| PORT | 8000 |
+| DATABASE_URL | Same entry as env.py |
+| SECRET_KEY | Same entry as env.py |
+| CLOUDINARY_URL | Same entry as env.py |
+|DISABLE_COLLECTSTATIC|1|
+
+* Scroll down to **Buildpacks** and press add. Select **Python** and then select **nodejs**. Make sure **nodejs** is below **Python**. 
+
+* Click on the **Deploy** button and if the website appears you're officially ready to go!
+
+* To run the code on the development tool, type in the following to the terminal:
+
+        python3 manage.py runserver
+
+
+**Enjoy**
+
+## Credits
+
+This is my final project in my full-stack development course, and what a journey it has been. The complexity has increased 10 fold every project and I wanted to give up multiple times but somehow I have got to the end of it. I am really proud of my self. There are a lot of things I want to do to all my projects to make it better but this is something I plan on doing in the future, implement different frameworks and find work arounds to get the best outcome. 
+   
+For the completion of all my projects and not just this project, I want to thank the following:
+
+- My wife, for constantly supporting me and putting up with the amount of time dedicated.
+- My family, for giving me ideas, helping with questionnaires and testing my projects
+- My mentor [Simen Daehlin](https://www.linkedin.com/in/simendaehlin/ "Simen Daehlin"), for always making sure that I'm pushing myself and not taking the easy way out. Thank you for the constant guidance and advice.
+- The slack team, helping with multiple issues I had.
+- The Code Institute tutor team, real life savers in my time of need, always kind and willing to help.
