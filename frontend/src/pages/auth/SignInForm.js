@@ -16,31 +16,29 @@ import {
 } from "react-bootstrap";
 import axios from "axios";
 
-const SignUpForm = () => {
-  const [signUpInfo, setSignUpInfo] = useState({
+const SignInForm = () => {
+  const [signInInfo, setSignInInfo] = useState({
     username: "",
-    password1: "",
-    password2: "",
+    password: "",
   });
-  const { username, password1, password2 } = signUpInfo;
+  const { username, password } = signInInfo;
 
   const [errors, setErrors] = useState({});
 
   const history = useHistory();
 
   const handleChange = (e) => {
-    setSignUpInfo({
-      ...signUpInfo,
+    setSignInInfo({
+      ...signInInfo,
       [e.target.name]: e.target.value,
     });
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(signUpInfo);
     try {
-      await axios.post("/dj-rest-auth/registration/", signUpInfo);
-      history.push("/signin");
+      await axios.post("/dj-rest-auth/login/", signInInfo);
+      history.push("/");
     } catch (err) {
       setErrors(err.response?.data);
     }
@@ -50,7 +48,7 @@ const SignUpForm = () => {
     <Row className={styles.Row}>
       <Col className="my-auto py-2 p-md-2" md={6}>
         <Container className={`${appStyles.Content} p-4 `}>
-          <h1 className={styles.Header}>sign up</h1>
+          <h1 className={styles.Header}>sign in</h1>
 
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId="username">
@@ -70,35 +68,18 @@ const SignUpForm = () => {
               </Alert>
             ))}
 
-            <Form.Group controlId="password1">
+            <Form.Group controlId="password">
               <Form.Label className="d-none">Enter Password</Form.Label>
               <Form.Control
                 className={`${styles.Input} ${styles.Placeholder}`}
                 type="password"
                 placeholder="Enter Password"
-                name="password1"
-                value={password1}
+                name="password"
+                value={password}
                 onChange={handleChange}
               />
             </Form.Group>
-            {errors.password1?.map((message, idx) => (
-              <Alert variant="warning" key={idx} className="mt-3">
-                {message}
-              </Alert>
-            ))}
-
-            <Form.Group controlId="password2">
-              <Form.Label className="d-none">Enter Password</Form.Label>
-              <Form.Control
-                className={`${styles.Input} ${styles.Placeholder}`}
-                type="password"
-                placeholder="Confirm Password"
-                name="password2"
-                value={password2}
-                onChange={handleChange}
-              />
-            </Form.Group>
-            {errors.password2?.map((message, idx) => (
+            {errors.password?.map((message, idx) => (
               <Alert variant="warning" key={idx} className="mt-3">
                 {message}
               </Alert>
@@ -106,10 +87,9 @@ const SignUpForm = () => {
 
             <Button
               className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.Bright}`}
-              variant="primary"
               type="submit"
             >
-              Sign up
+              Sign in
             </Button>
             {errors.non_field_errors?.map((message, idx) => (
               <Alert variant="warning" key={idx} className="mt-3">
@@ -119,8 +99,8 @@ const SignUpForm = () => {
           </Form>
         </Container>
         <Container className={`mt-3 ${appStyles.Content}`}>
-          <Link className={styles.Link} to="/signin">
-            Already have an account? <span>Sign in</span>
+          <Link className={styles.Link} to="/signup">
+            Don't have an account? <span>Sign up!</span>
           </Link>
         </Container>
       </Col>
@@ -131,7 +111,7 @@ const SignUpForm = () => {
         <Image
           className={`${appStyles.FillerImage}`}
           src={
-            "https://images.pexels.com/photos/205923/pexels-photo-205923.jpeg"
+            "https://images.pexels.com/photos/1830447/pexels-photo-1830447.jpeg?"
           }
         />
       </Col>
@@ -139,4 +119,4 @@ const SignUpForm = () => {
   );
 };
 
-export default SignUpForm;
+export default SignInForm;

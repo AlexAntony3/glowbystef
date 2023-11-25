@@ -45,10 +45,6 @@
   padding: 30px 10px;
 }
 
-.SignInCol {
-  height: 320px;
-}
-
-.SignUpCol {
+.SignUpInCol {
   height: 375px;
 }
