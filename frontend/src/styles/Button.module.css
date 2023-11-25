@@ -1,0 +1,46 @@
+.Button {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    align-self: center;
+    border-color: transparent;
+    padding: 4px 10px;
+    margin-left: 2px;
+    margin-right: 2px;
+    min-width: 75px;
+  }
+  
+  .Button:hover {
+    opacity: 0.8;
+    border-color: transparent;
+    cursor: pointer;
+  }
+  
+  .Button:hover:active {
+    background-color: #24517C !important;
+  }
+  
+  .Button:active {
+    background-color: #24517C!important;
+  }
+  
+  .Button:focus {
+    background-color: #24517C;
+  }
+  
+  .Wide {
+    padding: 10px 50px;
+    width: 100%;
+  }
+  
+  
+  .Bright:hover {
+    background-color: #E4DCD1;
+    color: #24517C;
+  }
+  
+  
+  .Bright {
+    background-color: #24517C;
+    color: #ffffff;
+  }

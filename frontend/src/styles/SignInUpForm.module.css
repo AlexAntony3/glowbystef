@@ -1,0 +1,54 @@
+.Row {
+  height: calc(100vh - 140px);
+}
+
+.Input {
+  background: #ffffff;
+  border: 1px solid #f0f1f9;
+  box-sizing: border-box;
+  border-radius: 2px;
+  color: #7177a1;
+  text-align: center;
+  padding: 10px;
+}
+
+.Header {
+  font-weight: bold;
+  font-size: 30px;
+  text-align: center;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #24517C;
+  border-bottom: 2px solid #24517C;
+  padding-bottom: 10px;
+}
+
+.Placeholder {
+  font-family: "Dancing Script", sans-serif ;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.Link {
+  text-decoration: none;
+  text-align: center;
+  display: block;
+  margin: auto;
+}
+
+.Link span {
+  color: #2c9c00;
+  transition: color 0.3s ease;
+}
+
+.Container {
+  padding: 30px 10px;
+}
+
+.SignInCol {
+  height: 320px;
+}
+
+.SignUpCol {
+  height: 375px;
+}
