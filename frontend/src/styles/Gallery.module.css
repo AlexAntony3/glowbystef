@@ -1,3 +1,4 @@
+
 .GalleryContentDisplay :hover {
   background-image: linear-gradient(
     to bottom,
@@ -15,11 +16,14 @@
   color: transparent;
 }
 
+.GalleryContentDisplay > img {
+  border-radius: 3px;
+}
+
 .GalleryContentDisplay > * :hover {
     background-image: none;
 }
 
-.GalleryContentDisplay > button {
-  background-color: wheat;
+.LikeButton {
   color:white;
 }
