@@ -1,13 +1,25 @@
 import styles from "../styles/NavBar.module.css";
 import React from "react";
+import axios from "axios";
 import { Container, Navbar, Nav, NavDropdown } from "react-bootstrap";
 import gbslogo from "../assets/gbslogo.png";
 import { NavLink } from "react-router-dom";
-import { useCurrentUser } from "../contexts/CurrentUserContext";
-import Avatar from './Avatar'
+import { useCurrentUser, useSetCurrentUser } from "../contexts/CurrentUserContext";
+import Avatar from "./Avatar";
 
 const NavBar = () => {
   const currentUser = useCurrentUser();
+  const setCurrentUser = useSetCurrentUser();
+
+  const handleSignOut = async () => {
+    try {
+      await axios.post("dj-rest-auth/logout/");
+      setCurrentUser(null);
+    } catch (error) {
+      console.log(error)
+    }
+  };
+
   const loggedInIcons = (
     <>
       <NavLink
@@ -29,10 +41,10 @@ const NavBar = () => {
           className={styles.NavLink}
           to={`/profiles/${currentUser?.profile_id}`}
         >
-          <Avatar src={currentUser?.profile_image} text="Account" height={40}/>
+          <Avatar src={currentUser?.profile_image} text="Account" height={40} />
         </NavLink>
         <NavDropdown.Divider />
-        <NavLink className={styles.NavLink} to="/" onClick={() => {}}>
+        <NavLink className={styles.NavLink} to="/" onClick={handleSignOut}>
           <i className="fa-solid fa-right-from-bracket"></i>Sign out
         </NavLink>
       </NavDropdown>
