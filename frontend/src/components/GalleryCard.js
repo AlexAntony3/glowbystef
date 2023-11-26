@@ -1,29 +1,22 @@
 import React from "react";
-import { Card, Button } from "react-bootstrap"
+import { Card, Button } from "react-bootstrap";
 import btnStyles from "../styles/Button.module.css";
-;
-
-const GalleryCard = (props) => {
-  const { name, description, price, image, rating } = props;
-
+const GalleryCard = ({ title, description, image, rating }) => {
   return (
-      <Card>
-        <Card.Img variant="top" src={image} style={{ height: '15rem' }} />
-        <Card.Body style={{ height: '10rem' }}>
-          <Card.Title>{name}</Card.Title>
-          <Card.Text >{description}</Card.Text>
-          <Card.Text >{`£${price}`}</Card.Text>
-        </Card.Body>
-        <Card.Footer>
-          <small className="text-muted">{rating}</small>
-          <Button
-              className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.Bright}`}
-              type="submit"
-            >
-              Reviews
-            </Button>
-        </Card.Footer>
-      </Card>
+    <Card>
+      <Card.Img variant="top" src={image} />
+      <Card.ImgOverlay>
+        <Card.Title>{title}</Card.Title>
+        <Card.Text>{description}</Card.Text>
+      </Card.ImgOverlay>
+
+      <Button
+        className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.Bright}`}
+        type="submit"
+      >
+        Reviews
+      </Button>
+    </Card>
   );
 };
 

@@ -4,17 +4,18 @@ import { CardColumns, Container } from "react-bootstrap";
 import appStyles from "../App.module.css";
 import axios from "axios";
 import { axiosRes } from "../api/axiosDefaults";
+import GalleryCard from "../components/GalleryCard";
 // import styles from "../../App.module.css";
 
-const Services = () => {
+const Gallery = () => {
   const [galleryImages, setGalleryImages] = useState([]);
   useEffect(() => {
-    getServices();
+    getGalleryImages();
   }, []);
 
-  const getServices = async () =>
+  const getGalleryImages = async () =>
     await axiosRes
-      .get("/gallaries/")
+      .get("/galleries/")
       .then((response) => setGalleryImages(response.data.results))
       .catch((err) => setGalleryImages([]));
 
@@ -24,8 +25,11 @@ const Services = () => {
       <CardColumns>
         {galleryImages.map((image, index) => {
           return (
-            <ServiceCard
+            <GalleryCard
               key={image.id}
+              image={image.image}
+              description={image.description}
+              title={image.title}
             />
           );
         })}
@@ -34,4 +38,4 @@ const Services = () => {
   );
 };
 
-export default Services;
+export default Gallery;
