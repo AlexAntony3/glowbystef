@@ -4,6 +4,7 @@ import { Container, Navbar, Nav, NavDropdown } from "react-bootstrap";
 import gbslogo from "../assets/gbslogo.png";
 import { NavLink } from "react-router-dom";
 import { useCurrentUser } from "../contexts/CurrentUserContext";
+import Avatar from './Avatar'
 
 const NavBar = () => {
   const currentUser = useCurrentUser();
@@ -28,7 +29,7 @@ const NavBar = () => {
           className={styles.NavLink}
           to={`/profiles/${currentUser?.profile_id}`}
         >
-          <i className="fa-solid fa-user"></i>Account
+          <Avatar src={currentUser?.profile_image} text="Account" height={40}/>
         </NavLink>
         <NavDropdown.Divider />
         <NavLink className={styles.NavLink} to="/" onClick={() => {}}>
