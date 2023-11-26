@@ -8,6 +8,17 @@
     padding-top: 140px;
   }
 
+  .Header {
+    font-weight: bold;
+    font-size: 30px;
+    text-align: center;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #24517C;
+    border-bottom: 2px solid #24517C;
+    padding-bottom: 10px;
+  }
+
   .Content {
     background-color: #ffffff;
     padding: 10px;
