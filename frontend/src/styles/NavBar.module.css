@@ -10,3 +10,9 @@
 .Active i {
     color: #8284f8;
 }
+
+.DropdownLink {
+    padding: 2px;
+    text-decoration: none;
+}
+

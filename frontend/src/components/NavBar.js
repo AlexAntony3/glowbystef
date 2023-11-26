@@ -1,13 +1,42 @@
 import styles from "../styles/NavBar.module.css";
 import React from "react";
-import { Container, Navbar, Nav } from "react-bootstrap";
+import { Container, Navbar, Nav, NavDropdown } from "react-bootstrap";
 import gbslogo from "../assets/gbslogo.png";
 import { NavLink } from "react-router-dom";
 import { useCurrentUser } from "../contexts/CurrentUserContext";
 
 const NavBar = () => {
   const currentUser = useCurrentUser();
-  const loggedInIcons = <>{currentUser?.username}</>
+  const loggedInIcons = (
+    <>
+      <NavLink
+        className={styles.NavLink}
+        activeClassName={styles.Active}
+        to="/liked"
+      >
+        <i className="fa-solid fa-heart"></i>Liked
+      </NavLink>
+      <NavDropdown
+        title={
+          <>
+            <i className="fa-solid fa-user"></i>Profile
+          </>
+        }
+        className={styles.DropdownLink}
+      >
+        <NavLink
+          className={styles.NavLink}
+          to={`/profiles/${currentUser?.profile_id}`}
+        >
+          <i className="fa-solid fa-user"></i>Account
+        </NavLink>
+        <NavDropdown.Divider />
+        <NavLink className={styles.NavLink} to="/" onClick={() => {}}>
+          <i className="fa-solid fa-right-from-bracket"></i>Sign out
+        </NavLink>
+      </NavDropdown>
+    </>
+  );
   const loggedOutIcons = (
     <>
       <NavLink
@@ -52,6 +81,13 @@ const NavBar = () => {
               to="/services"
             >
               <i className="fa-solid fa-store"></i>Services
+            </NavLink>
+            <NavLink
+              className={styles.NavLink}
+              activeClassName={styles.Active}
+              to="/gallery"
+            >
+              <i className="fa-solid fa-images"></i>Gallery
             </NavLink>
             {currentUser ? loggedInIcons : loggedOutIcons}
           </Nav>
