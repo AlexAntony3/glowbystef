@@ -7,14 +7,15 @@ import SignUpForm from "./pages/auth/SignUpForm";
 import SignInForm from "./pages/auth/SignInForm";
 import Services from "./pages/Services";
 import Gallery from "./pages/Gallery";
+import Home from "./pages/Home";
 
 function App() {
   return (
     <div className={styles.App}>
       <NavBar />
       <Container className={styles.Spacing}>
-        <Switch>
-          <Route exact path="/" render={() => <h1>Home Page</h1>} />
+        <Switch className={styles.Spacing}>
+          <Route exact path="/" render={() => <Home />} />
           <Route exact path="/signin" render={() => <SignInForm />} />
           <Route exact path="/signup" render={() => <SignUpForm />} />
           <Route exact path="/services" render={() => <Services />} />

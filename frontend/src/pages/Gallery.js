@@ -30,6 +30,8 @@ const Gallery = () => {
               image={image.image}
               description={image.description}
               title={image.title}
+              like_id={image.like_id ? image.like_id : "null" }
+              likes_count={image.likes_count}
             />
           );
         })}

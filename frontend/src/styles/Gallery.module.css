@@ -25,5 +25,25 @@
 }
 
 .LikeButton {
-  color:white;
+  position: relative;
+  color:black !important;
+  font-size: 10px;
+  text-align: center;
+  background-image: none !important;
+}
+
+.LikeButton :hover{
+  color:red !important;
+}
+
+.HeartFill {
+  color: red;
+}
+
+.HeartFill:hover {
+  color: purple;
+}
+
+.HeartEmpty:hover {
+  color: purple;
 }
