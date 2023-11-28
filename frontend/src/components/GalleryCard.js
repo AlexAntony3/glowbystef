@@ -18,29 +18,32 @@ const GalleryCard = ({
   return (
     <Card className={styles.GalleryContentDisplay}>
       <Card.Img variant="top" src={image} />
-      <Card.ImgOverlay >
+      <Card.ImgOverlay>
         {title && <Card.Title>{title}</Card.Title>}
         {description && <Card.Text>{description}</Card.Text>}
       </Card.ImgOverlay>
       <Card.Footer className={styles.LikeButton}>
-        {currentUser ? (
+        {like_id ? (
           <span onClick={() => {}}>
-            <i className={`far fa-heart ${styles.HeartEmpty} ${styles.LikeButton}`}></i>
+            this is some text
+            <i
+              className={`far fa-heart ${styles.HeartEmpty} ${styles.LikeButton}`}
+            ></i>
+          </span>
+        ) : currentUser ? (
+          <span onClick={() => {}}>
+            <i
+              className={`far fa-heart ${styles.HeartFill} ${styles.LikeButton}`}
+            ></i>
           </span>
         ) : (
-          <span onClick={() => {}}>
-            <i className={`far fa-heart ${styles.HeartFill} ${styles.LikeButton}`}></i>
-          </span>
-        ) 
-        // :  (
-        //   <OverlayTrigger
-        //       placement="top"
-        //       overlay={<Tooltip>Log in to like posts!</Tooltip>}
-        //     >
-        //       <i className={`"far fa-heart" ${styles.HeartEmpty} `} />
-        //     </OverlayTrigger>
-        // )
-        }
+          <OverlayTrigger
+            placement="top"
+            overlay={<Tooltip>Log in to like posts!</Tooltip>}
+          >
+            <i className="far fa-heart"></i>
+          </OverlayTrigger>
+        )}
         {likes_count}
       </Card.Footer>
     </Card>

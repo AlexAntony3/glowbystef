@@ -56,6 +56,7 @@ const NavBar = () => {
       </NavDropdown>
     </>
   );
+  
   const loggedOutIcons = (
     <>
       <NavLink
@@ -100,22 +101,19 @@ const NavBar = () => {
               className={styles.NavLink}
               activeClassName={styles.Active}
               to="/"
-            >
-              <i className="fa-solid fa-house"></i>Home
+            >HOME
             </NavLink>
             <NavLink
               className={styles.NavLink}
               activeClassName={styles.Active}
               to="/services"
-            >
-              <i className="fa-solid fa-store"></i>Services
+            >SERVICES
             </NavLink>
             <NavLink
               className={styles.NavLink}
               activeClassName={styles.Active}
               to="/gallery"
-            >
-              <i className="fa-solid fa-images"></i>Gallery
+            >GALLERY
             </NavLink>
             {currentUser ? loggedInIcons : loggedOutIcons}
           </Nav>

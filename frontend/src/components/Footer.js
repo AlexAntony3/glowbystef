@@ -14,14 +14,14 @@ const Footer = () => {
           <Col className="text-center">
             
             <span>
-              <i class="fa-solid fa-phone fa-sm"></i>+ 44 (0) 77 33 33 33 11
+              <i class="fa-solid fa-phone fa-sm"></i>+ 44 (0) 191 242 4242
             <br/>
             
               <i class="fa-solid fa-location-dot fa-sm"></i>
-              Salon Park, Newcastle, NE99 9ER, UK
+              Salon Park Way, Newcastle, NE99 9ER, UK
               <br/>
               <i class="fa-solid fa-envelope fa-sm"></i>
-              info@glowbystef.com
+              info@glowbystef.co.uk
             </span>
           </Col>
           <Col className="text-center">

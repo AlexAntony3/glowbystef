@@ -1,17 +1,21 @@
 import React from "react";
-import { Image, Container, Row, Col } from "react-bootstrap";
+import { Image, Container, Row, Col, Card, ListGroup } from "react-bootstrap";
+import appStyles from "../App.module.css";
 
 const Home = () => {
   return (
     <Container fluid>
       <Row>
-        <Image
-          src="https://res.cloudinary.com/daeryvqkx/image/upload/v1701124432/banner_ljq0jk.jpg"
-          fluid
-        />
+        <Col>
+          <Image
+            src="https://res.cloudinary.com/daeryvqkx/image/upload/v1701124432/banner_ljq0jk.jpg"
+            fluid
+          />
+        </Col>
       </Row>
 
-        <div>
+      <div>
+        <h1 className={appStyles.Header}>About me</h1>
         <Row>
           <Col>
             <Image
@@ -21,15 +25,33 @@ const Home = () => {
           </Col>
           <Col>
             <div>
-              <h3>About me</h3> 
-              <h4>Age: 27</h4> 
-              <h4>Job: Teacher</h4>
-              <h4>Interests and hobbies: reading, hockey and</h4>
+              <Card>
+                <ListGroup variant="flush">
+                  <ListGroup.Item>
+                    <strong>Name</strong>: Steffi Samuel-Antony</ListGroup.Item>
+                  <ListGroup.Item>
+                    <strong>Occupation</strong>: Teacher and Make up Artist
+                  </ListGroup.Item>
+                  <ListGroup.Item>
+                    <strong>Hobbies</strong>: Hockey, Listening to music and cooking
+                  </ListGroup.Item>
+                  <ListGroup.Item>
+                    <strong>A little bit about me</strong>: Ever since seeing my mum put make up
+                    on, I always saw it as something wonderful. A little bit
+                    about me: Ever since seeing my mum put make up on, I always
+                    saw it as something wonderful. A little bit about me: Ever
+                    since seeing my mum put make up on, I always saw it as
+                    something wonderful. A little bit about me: Ever since
+                    seeing my mum put make up on, I always saw it as something
+                    wonderful. A little bit about me: Ever since seeing my mum
+                    put make up on, I always saw it as something wonderful.
+                  </ListGroup.Item>
+                </ListGroup>
+              </Card>
             </div>
           </Col>
-          </Row>
-        </div>
-      
+        </Row>
+      </div>
     </Container>
   );
 };

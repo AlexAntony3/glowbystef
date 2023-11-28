@@ -2,18 +2,7 @@
     background-color: #E4DCD1;
     position: sticky;
     padding: 10px;
-}
+    filter: invert(100%);
 
-.NavLink {
-    padding: 10px;
-}
-
-.Active i {
-    color: #8284f8;
-}
-
-.DropdownLink {
-    padding: 2px;
-    text-decoration: none;
 }
 

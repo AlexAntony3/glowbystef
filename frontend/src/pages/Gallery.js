@@ -19,6 +19,8 @@ const Gallery = () => {
       .then((response) => setGalleryImages(response.data.results))
       .catch((err) => setGalleryImages([]));
 
+  console.log(galleryImages)
+
   return (
     <Container className={`${appStyles.Content} p-4 `}>
       <h1 className={appStyles.Header}>Our Services</h1>
@@ -30,7 +32,7 @@ const Gallery = () => {
               image={image.image}
               description={image.description}
               title={image.title}
-              like_id={image.like_id ? image.like_id : "null" }
+              like_id={image.like_id}
               likes_count={image.likes_count}
             />
           );
