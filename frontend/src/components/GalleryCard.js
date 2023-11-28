@@ -2,6 +2,7 @@ import React from "react";
 import { Card, Button, OverlayTrigger, Tooltip } from "react-bootstrap";
 import styles from "../styles/Gallery.module.css";
 import { useCurrentUser } from "../contexts/CurrentUserContext";
+import { axiosRes } from "../api/axiosDefaults";
 
 const GalleryCard = ({
   id,
@@ -12,6 +13,14 @@ const GalleryCard = ({
   likes_count,
 }) => {
   const currentUser = useCurrentUser();
+
+  const handleLike = async () => {
+    try {
+      const {data} = await axiosRes.post('/likes/', { image : id })
+    } catch (error) {
+      
+    }
+  }
 
   console.log(like_id);
 

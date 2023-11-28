@@ -1,6 +1,7 @@
 import React from "react";
 import { Image, Container, Row, Col, Card, ListGroup } from "react-bootstrap";
 import appStyles from "../App.module.css";
+import styles from "../styles/Home.module.css";
 
 const Home = () => {
   return (
@@ -9,21 +10,21 @@ const Home = () => {
         <Col>
           <Image
             src="https://res.cloudinary.com/daeryvqkx/image/upload/v1701124432/banner_ljq0jk.jpg"
-            fluid
+            className={`${appStyles.FullWidth} ${styles.NoSpacing}`}
           />
         </Col>
       </Row>
 
       <div>
-        <h1 className={appStyles.Header}>About me</h1>
+        <h1 className={`${appStyles.Header} ${appStyles.FullWidth} ${styles.TitlePadding}`}>About me</h1>
         <Row>
-          <Col>
+          <Col sm={12} lg={6}>
             <Image
               src="https://res.cloudinary.com/daeryvqkx/image/upload/v1701125618/dp_sp8lqu.jpg"
               fluid
             />
           </Col>
-          <Col>
+          <Col sm={12} lg={6}>
             <div>
               <Card>
                 <ListGroup variant="flush">
@@ -51,6 +52,10 @@ const Home = () => {
             </div>
           </Col>
         </Row>
+      </div>
+      <div>
+      <h1 className={`${appStyles.Header} ${appStyles.FullWidth} ${styles.TitlePadding}`}>Get in Touch!</h1>
+      
       </div>
     </Container>
   );

@@ -15,7 +15,7 @@ function App() {
     <div className={styles.App}>
       <NavBar />
       <Container className={styles.Spacing}>
-        <Switch className={styles.Spacing}>
+        <Switch>
           <Route exact path="/" render={() => <Home />} />
           <Route exact path="/signin" render={() => <SignInForm />} />
           <Route exact path="/signup" render={() => <SignUpForm />} />

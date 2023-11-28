@@ -33,16 +33,9 @@ const NavBar = () => {
         activeClassName={styles.Active}
         to="/liked"
       >
-        <i className="fa-solid fa-heart"></i>Liked
+        LIKED
       </NavLink>
-      <NavDropdown
-        title={
-          <>
-            <i className="fa-solid fa-user"></i>Profile
-          </>
-        }
-        className={styles.DropdownLink}
-      >
+      <NavDropdown title={<>PROFILE</>} className={styles.DropdownLink}>
         <NavLink
           className={styles.NavLink}
           to={`/profiles/${currentUser?.profile_id}`}
@@ -51,12 +44,12 @@ const NavBar = () => {
         </NavLink>
         <NavDropdown.Divider />
         <NavLink className={styles.NavLink} to="/" onClick={handleSignOut}>
-          <i className="fa-solid fa-right-from-bracket"></i>Sign out
+          Sign out
         </NavLink>
       </NavDropdown>
     </>
   );
-  
+
   const loggedOutIcons = (
     <>
       <NavLink
@@ -64,14 +57,7 @@ const NavBar = () => {
         activeClassName={styles.Active}
         to="/signin"
       >
-        <i className="fa-solid fa-right-to-bracket"></i>Sign in
-      </NavLink>
-      <NavLink
-        className={styles.NavLink}
-        activeClassName={styles.Active}
-        to="/signup"
-      >
-        <i className="fa-solid fa-user-plus"></i>Sign up
+        SIGN IN
       </NavLink>
     </>
   );
@@ -101,19 +87,22 @@ const NavBar = () => {
               className={styles.NavLink}
               activeClassName={styles.Active}
               to="/"
-            >HOME
+            >
+              HOME
             </NavLink>
             <NavLink
               className={styles.NavLink}
               activeClassName={styles.Active}
               to="/services"
-            >SERVICES
+            >
+              SERVICES
             </NavLink>
             <NavLink
               className={styles.NavLink}
               activeClassName={styles.Active}
               to="/gallery"
-            >GALLERY
+            >
+              GALLERY
             </NavLink>
             {currentUser ? loggedInIcons : loggedOutIcons}
           </Nav>
