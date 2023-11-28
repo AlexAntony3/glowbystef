@@ -8,6 +8,7 @@ import SignInForm from "./pages/auth/SignInForm";
 import Services from "./pages/Services";
 import Gallery from "./pages/Gallery";
 import Home from "./pages/Home";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route render={() => <p>Page not Found!</p>} />
         </Switch>
       </Container>
+      <Footer />
     </div>
   );
 }
