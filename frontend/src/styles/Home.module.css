@@ -1,7 +1,32 @@
 .NoSpacing {
-    margin-top: -10vw;
+  margin-top: -10vw;
 }
 
 .TitlePadding {
-    padding: 30px;
+  padding: 30px;
+}
+
+.DancingScript {
+  font-family: "Dancing Script", sans-serif;
+  margin: auto;
+  text-align: center;
+}
+
+.DancingScript h1 {
+  font-size: 40px;
+}
+
+.DancingScript p {
+  font-size: 20px;
+}
+
+.JumboBackground {
+  background: rgb(228, 220, 209);
+  background: linear-gradient(
+    180deg,
+    rgba(228, 220, 209, 1) 43%,
+    rgba(211, 185, 150, 1) 79%,
+    rgba(106, 92, 92, 0.756827731092437) 100%
+  );
+  border-radius: 5px;
 }

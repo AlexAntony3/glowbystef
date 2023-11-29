@@ -1,7 +1,18 @@
 import React from "react";
-import { Image, Container, Row, Col, Card, ListGroup } from "react-bootstrap";
+import {
+  Image,
+  Container,
+  Row,
+  Col,
+  Card,
+  ListGroup,
+  Jumbotron,
+  Button,
+} from "react-bootstrap";
 import appStyles from "../App.module.css";
 import styles from "../styles/Home.module.css";
+import btnStyles from "../styles/Button.module.css"
+import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
@@ -16,7 +27,11 @@ const Home = () => {
       </Row>
 
       <div>
-        <h1 className={`${appStyles.Header} ${appStyles.FullWidth} ${styles.TitlePadding}`}>About me</h1>
+        <h1
+          className={`${appStyles.Header} ${appStyles.FullWidth} ${styles.TitlePadding}`}
+        >
+          About me
+        </h1>
         <Row>
           <Col sm={12} lg={6}>
             <Image
@@ -29,24 +44,35 @@ const Home = () => {
               <Card>
                 <ListGroup variant="flush">
                   <ListGroup.Item>
-                    <strong>Name</strong>: Steffi Samuel-Antony</ListGroup.Item>
+                    <strong>Name</strong>: Steffi Samuel-Antony
+                  </ListGroup.Item>
                   <ListGroup.Item>
                     <strong>Occupation</strong>: Teacher and Make up Artist
                   </ListGroup.Item>
                   <ListGroup.Item>
-                    <strong>Hobbies</strong>: Hockey, Listening to music and cooking
+                    <strong>Hobbies</strong>: Hockey, Listening to music and
+                    cooking
                   </ListGroup.Item>
                   <ListGroup.Item>
-                    <strong>A little bit about me</strong>: Ever since seeing my mum put make up
+                    <strong>A little bit about me</strong>: Ever since seeing my
+                    mum put make up on, I always saw it as something wonderful.
+                    A little bit about me: Ever since seeing my mum put make up
                     on, I always saw it as something wonderful. A little bit
                     about me: Ever since seeing my mum put make up on, I always
                     saw it as something wonderful. A little bit about me: Ever
                     since seeing my mum put make up on, I always saw it as
                     something wonderful. A little bit about me: Ever since
                     seeing my mum put make up on, I always saw it as something
-                    wonderful. A little bit about me: Ever since seeing my mum
-                    put make up on, I always saw it as something wonderful.
+                    wonderful.
                   </ListGroup.Item>
+                  <Link to="/services" className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.Bright} ${btnStyles.ButtonMargin}`}>
+                    SERVICES : Check out all the services I can
+                    provide
+                  </Link>
+                  <Link to="/gallery" className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.Bright} ${btnStyles.ButtonMargin}`}>
+                    GALLERY : Check out my gallery and see if
+                    you can find some inspiration for what you would like !
+                  </Link>
                 </ListGroup>
               </Card>
             </div>
@@ -54,8 +80,31 @@ const Home = () => {
         </Row>
       </div>
       <div>
-      <h1 className={`${appStyles.Header} ${appStyles.FullWidth} ${styles.TitlePadding}`}>Get in Touch!</h1>
-      
+        <h1
+          className={`${appStyles.Header} ${appStyles.FullWidth} ${styles.TitlePadding}`}
+        >
+          Get in Touch!
+        </h1>
+        <Jumbotron fluid className={styles.JumboBackground}>
+          <Container>
+            <Row>
+              <Col className={styles.DancingScript} md={6}>
+                <h1>Glow By Stef</h1>
+                <p>" We are the new definition of beauty "</p>
+                <p>
+                  Please note, I am booked about 2 weeks in advance so please be
+                  sure to book in at the earliest possible time.
+                </p>
+              </Col>
+              <Col className={styles.DancingScript} md={6}>
+                <h1>Working Hours:</h1>
+                <p>Monday - Friday: 08:00 - 18:00</p>
+                <p>Saturday: 09:00 - 17:00</p>
+                <p>Sunday: 10:00 - 16:00</p>
+              </Col>
+            </Row>
+          </Container>
+        </Jumbotron>
       </div>
     </Container>
   );
