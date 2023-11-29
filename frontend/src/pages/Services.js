@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import ServiceCard from "../components/ServiceCard";
 import { CardColumns, Container } from "react-bootstrap";
 import appStyles from "../App.module.css";
-import axios from "axios";
 import { axiosRes } from "../api/axiosDefaults";
 // import styles from "../../App.module.css";
 

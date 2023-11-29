@@ -1,16 +1,15 @@
 .NavBar {
-    background-color: #E4DCD1;
-    filter: invert(0%);
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-    height: 110px;
-}
+  background-color: #e4dcd1;
+  filter: invert(12%);
+  /* box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; */
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+  height: 99px;}
 
 .NavLink {
-    padding: 10px;
+  padding: 10px 30px 0px 0px;
 }
 
 .DropdownLink {
-    padding: 2px;
-    text-decoration: none;
+  padding: 2px;
+  text-decoration: none;
 }
-

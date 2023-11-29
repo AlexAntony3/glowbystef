@@ -1,5 +1,5 @@
-import React from "react";
-import { Card, Button, OverlayTrigger, Tooltip } from "react-bootstrap";
+import React, { useState } from "react";
+import { Card, OverlayTrigger, Tooltip } from "react-bootstrap";
 import styles from "../styles/Gallery.module.css";
 import { useCurrentUser } from "../contexts/CurrentUserContext";
 import { axiosRes } from "../api/axiosDefaults";
@@ -14,15 +14,28 @@ const GalleryCard = ({
 }) => {
   const currentUser = useCurrentUser();
 
+  const [likesCount, setLikesCount] = useState(likes_count);
+  const [likeId, setLikeId] = useState(like_id);
+
   const handleLike = async () => {
     try {
-      const {data} = await axiosRes.post('/likes/', { image : id })
+      const { data } = await axiosRes.post("/likes/", { gallery: id });
+      setLikesCount((prevCount) => ++prevCount);
+      setLikeId(data.id);
     } catch (error) {
-      
+      console.log(error);
     }
-  }
+  };
 
-  console.log(like_id);
+  const handleUnlike = async () => {
+    try {
+      await axiosRes.delete(`/likes/${likeId}`);
+      setLikesCount((prevCount) => --prevCount);
+      setLikeId(null);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <Card className={styles.GalleryContentDisplay}>
@@ -32,15 +45,14 @@ const GalleryCard = ({
         {description && <Card.Text>{description}</Card.Text>}
       </Card.ImgOverlay>
       <Card.Footer className={styles.LikeButton}>
-        {like_id ? (
-          <span onClick={() => {}}>
-            this is some text
+        {likeId ? (
+          <span onClick={handleUnlike}>
             <i
-              className={`far fa-heart ${styles.HeartEmpty} ${styles.LikeButton}`}
+              className={`fas fa-heart ${styles.HeartEmpty} ${styles.LikeButton}`}
             ></i>
           </span>
         ) : currentUser ? (
-          <span onClick={() => {}}>
+          <span onClick={handleLike}>
             <i
               className={`far fa-heart ${styles.HeartFill} ${styles.LikeButton}`}
             ></i>
@@ -53,7 +65,7 @@ const GalleryCard = ({
             <i className="far fa-heart"></i>
           </OverlayTrigger>
         )}
-        {likes_count}
+        {likesCount}
       </Card.Footer>
     </Card>
   );

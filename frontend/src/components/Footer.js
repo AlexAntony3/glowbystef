@@ -14,13 +14,13 @@ const Footer = () => {
           <Col className="text-center">
             
             <span>
-              <i class="fa-solid fa-phone fa-sm"></i>+ 44 (0) 191 242 4242
+              <i className="fa-solid fa-phone fa-sm"></i>+ 44 (0) 191 242 4242
             <br/>
             
-              <i class="fa-solid fa-location-dot fa-sm"></i>
+              <i className="fa-solid fa-location-dot fa-sm"></i>
               Salon Park Way, Newcastle, NE99 9ER, UK
               <br/>
-              <i class="fa-solid fa-envelope fa-sm"></i>
+              <i className="fa-solid fa-envelope fa-sm"></i>
               info@glowbystef.co.uk
             </span>
           </Col>
@@ -31,29 +31,33 @@ const Footer = () => {
                 href="https://www.facebook.com"
                 aria-label="link to my facebook page"
                 target="_blank"
+                rel="noreferrer"
               >
-                <i class="fa-brands fa-facebook"></i>
+                <i className="fa-brands fa-facebook"></i>
               </a>
               <a
                 href="https://www.instagram.com"
                 aria-label="link to my instagram page"
                 target="_blank"
+                rel="noreferrer"
               >
-                <i class="fa-brands fa-instagram"></i>
+                <i className="fa-brands fa-instagram"></i>
               </a>
               <a
                 href="https://www.twitter.com"
                 aria-label="link to my twitter page"
                 target="_blank"
+                rel="noreferrer"
               >
-                <i class="fa-brands fa-twitter"></i>
+                <i className="fa-brands fa-twitter"></i>
               </a>
               <a
                 href="https://github.com/AlexAntony3"
                 aria-label="link to my github page"
                 target="_blank"
+                rel="noreferrer"
               >
-                <i class="fa-brands fa-github"></i>
+                <i className="fa-brands fa-github"></i>
               </a>
             </h5>
           </Col>
