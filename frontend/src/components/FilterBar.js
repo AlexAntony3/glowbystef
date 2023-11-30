@@ -56,17 +56,6 @@ const FilterBar = ({ setSearchTerm }) => {
           ))}
         </ButtonGroup>
       </Col>
-      <Col>
-        <Form className="d-flex">
-          <Form.Control
-            type="search"
-            placeholder="Search"
-            className="me-2"
-            aria-label="Search"
-          />
-          <Button>Search</Button>
-        </Form>
-      </Col>
     </Row>
   );
 };
