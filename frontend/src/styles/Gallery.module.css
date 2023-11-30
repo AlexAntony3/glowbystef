@@ -64,3 +64,8 @@
   border-radius: 5px;
   cursor: pointer;
 }
+
+.FilterBar {
+  padding: 20px;
+  margin: 20px;
+}
