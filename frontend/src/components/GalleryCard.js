@@ -1,5 +1,9 @@
 import React, { useState } from "react";
-import { Card, OverlayTrigger, Tooltip } from "react-bootstrap";
+import {
+  Card,
+  OverlayTrigger,
+  Tooltip,
+} from "react-bootstrap";
 import styles from "../styles/Gallery.module.css";
 import { useCurrentUser } from "../contexts/CurrentUserContext";
 import { axiosRes } from "../api/axiosDefaults";
@@ -49,13 +53,13 @@ const GalleryCard = ({
           <span onClick={handleUnlike}>
             <i
               className={`fas fa-heart ${styles.HeartEmpty} ${styles.LikeButton}`}
-            ></i>
+            />
           </span>
         ) : currentUser ? (
           <span onClick={handleLike}>
             <i
               className={`far fa-heart ${styles.HeartFill} ${styles.LikeButton}`}
-            ></i>
+            />
           </span>
         ) : (
           <OverlayTrigger
