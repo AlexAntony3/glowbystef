@@ -4,6 +4,9 @@ from django.contrib.auth.models import User
 
 
 class Profile(models.Model):
+    """
+    class made for profile creation and fields that a user can fill in when editing their profile
+    """
     owner = models.OneToOneField(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

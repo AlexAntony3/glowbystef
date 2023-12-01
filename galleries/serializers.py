@@ -4,6 +4,9 @@ from .models import Gallery, Like
 
 
 class GallerySerializer(serializers.ModelSerializer):
+    """
+    Serializer that allows a user to like the gallery post.
+    """
     like_id = serializers.SerializerMethodField()
     likes_count = serializers.ReadOnlyField()
 
@@ -25,6 +28,9 @@ class GallerySerializer(serializers.ModelSerializer):
 
 
 class LikeSerializer(serializers.ModelSerializer):
+    """
+    Serializer that allows the creation of a like
+    """
 
     owner = serializers.ReadOnlyField(source='owner.username')
 

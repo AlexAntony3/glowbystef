@@ -4,6 +4,10 @@ from .models import Service, Review
 
 
 class ServiceSerializer(serializers.ModelSerializer):
+    """
+    A serializer that allows a user to associate a review to the relevant
+    service.
+    """
     review_id = serializers.SerializerMethodField()
     reviews_count = serializers.ReadOnlyField()
 
@@ -27,6 +31,9 @@ class ServiceSerializer(serializers.ModelSerializer):
 
 
 class ReviewSerializer(serializers.ModelSerializer):
+    """
+    serializer for the reviews 
+    """
     owner = serializers.ReadOnlyField(source='owner.username')
     is_owner = serializers.SerializerMethodField()
     profile_id = serializers.ReadOnlyField(

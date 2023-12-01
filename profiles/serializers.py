@@ -3,6 +3,10 @@ from .models import Profile
 
 
 class ProfileSerializer(serializers.ModelSerializer):
+    """
+    Serializer that allows recognition of when data belongs to
+    a user.
+    """
     owner = serializers.ReadOnlyField(source='owner.username')
     is_owner = serializers.SerializerMethodField()
 

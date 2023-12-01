@@ -5,6 +5,10 @@ from django.contrib.auth.models import User
 
 
 class Service(models.Model):
+    """
+    Class to allow services to be put into place, these services are added by
+    admin only and therefore do not require CRUD functionality
+    """
     name = models.CharField(max_length=255)
     description = models.TextField()
     price = models.DecimalField(max_digits=10, decimal_places=2)
@@ -15,6 +19,10 @@ class Service(models.Model):
 
 
 class Review(models.Model):
+    """
+    class made for the review secton whereby a user can filter to see reviews
+    that scored a certain rating.
+    """
     RATING_FILTER_CHOICES = [
         (1, 'one star'),
         (2, 'two stars'),

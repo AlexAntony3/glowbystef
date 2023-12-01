@@ -3,6 +3,9 @@ from django.contrib.auth.models import User
 
 
 class Gallery(models.Model):
+    """
+    class made to allow users to upload pictures and have full CRUD functionality.
+    """
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     title = models.CharField(max_length=255)
@@ -19,6 +22,10 @@ class Gallery(models.Model):
 
 
 class Like(models.Model):
+    """
+    class used to allow a user to like a post in the gallery, as the foreignkey
+    is added, it ensures that both models are linked
+    """
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     gallery = models.ForeignKey(
         Gallery, on_delete=models.CASCADE, related_name='likes'
