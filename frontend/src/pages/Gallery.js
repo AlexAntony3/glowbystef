@@ -7,6 +7,7 @@ import { faSliders } from "@fortawesome/free-solid-svg-icons";
 import { CardColumns, Container } from "react-bootstrap";
 import GalleryCard from "../components/GalleryCard";
 import FilterBar from "../components/FilterBar";
+import UploadPhotoModal from "../components/UploadPhotoModal";
 
 const Gallery = () => {
   const [galleryImages, setGalleryImages] = useState([]);
@@ -14,6 +15,7 @@ const Gallery = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [results, setResults] = useState([]);
   const [filteredResults, setFilteredResults] = useState([]);
+  const [show, setShow] = useState(false);
 
   useEffect(() => {
     getGalleryImages();
@@ -48,27 +50,34 @@ const Gallery = () => {
       });
 
   return (
-    <Container className={`${appStyles.Content}`}>
-      <h1 className={appStyles.Header}>
-        Gallery
-        <span
-          className={styles.Filter}
-          onClick={() => setFilterable(!filterable)}
-        >
-          <FontAwesomeIcon icon={faSliders} size="xs" />
-        </span>
-      </h1>
+    <>
+      <UploadPhotoModal show={true} onHide={() => setShow(false)} fade={false} />
+      <Container className={`${appStyles.Content}`}>
+        <h1 className={appStyles.Header}>
+          Gallery
+          <span
+            className={styles.Filter}
+            onClick={() => setFilterable(!filterable)}
+          >
+            <FontAwesomeIcon icon={faSliders} size="xs" />
+          </span>
+        </h1>
 
-      {filterable && (
-        <FilterBar className={styles.FilterBar} setSearchTerm={setSearchTerm} />
-      )}
+        {filterable && (
+          <FilterBar
+            className={styles.FilterBar}
+            setSearchTerm={setSearchTerm}
+            setShowModal={setShow}
+          />
+        )}
 
-      <CardColumns>
-        {galleryImages.map((image) => {
-          return <GalleryCard key={`gallery-image-${image.id}`} {...image} />;
-        })}
-      </CardColumns>
-    </Container>
+        <CardColumns>
+          {galleryImages.map((image) => {
+            return <GalleryCard key={`gallery-image-${image.id}`} {...image} />;
+          })}
+        </CardColumns>
+      </Container>
+    </>
   );
 };
 

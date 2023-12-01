@@ -8,8 +8,10 @@ import {
   ToggleButton,
 } from "react-bootstrap";
 import styles from "../styles/FilterBar.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
-const FilterBar = ({ setSearchTerm }) => {
+const FilterBar = ({ setSearchTerm, setShowModal }) => {
   const [term, setTerm] = useState("");
   const radioOptions = [
     { name: "All", value: "1" },
@@ -38,14 +40,13 @@ const FilterBar = ({ setSearchTerm }) => {
           </Button>
         </Form>
       </Col>
-
       <Col>
         <ButtonGroup toggle>
           {radioOptions.map((option, idx) => (
             <ToggleButton
               key={idx}
               type="radio"
-              variant="secondary"
+              variant="outline-secondary"
               name="radio"
               value={option.value}
               checked={radioValue === option.value}
@@ -55,6 +56,12 @@ const FilterBar = ({ setSearchTerm }) => {
             </ToggleButton>
           ))}
         </ButtonGroup>
+      </Col>
+      <Col>
+        <Button type="button" variant="secondary" onClick={() => setShowModal(true)}>
+          <FontAwesomeIcon icon={faPlus} size="sm" />
+          Upload Photo
+        </Button>
       </Col>
     </Row>
   );
