@@ -4,10 +4,12 @@ import appStyles from "../App.module.css";
 import styles from "../styles/Gallery.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSliders } from "@fortawesome/free-solid-svg-icons";
-import { CardColumns, Container } from "react-bootstrap";
+import { Button, Row, CardColumns, Col, Container } from "react-bootstrap";
 import GalleryCard from "../components/GalleryCard";
 import FilterBar from "../components/FilterBar";
 import UploadPhotoModal from "../components/UploadPhotoModal";
+import btnStyles from "../styles/Button.module.css";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 const Gallery = () => {
   const [galleryImages, setGalleryImages] = useState([]);
@@ -51,7 +53,11 @@ const Gallery = () => {
 
   return (
     <>
-      <UploadPhotoModal show={true} onHide={() => setShow(false)} fade={false} />
+      <UploadPhotoModal
+        show={true}
+        onHide={() => setShow(false)}
+        fade={false}
+      />
       <Container className={`${appStyles.Content}`}>
         <h1 className={appStyles.Header}>
           Gallery
@@ -62,6 +68,20 @@ const Gallery = () => {
             <FontAwesomeIcon icon={faSliders} size="xs" />
           </span>
         </h1>
+        <Row className="mb-2 mt-2"> 
+          <Col md={6}>
+            <Link to="/gallery/create">
+              <Button
+                className={`${btnStyles.Button} ${btnStyles.Bright} ${btnStyles.Wide}`}
+              >
+                [+] Add your own photo!
+              </Button>
+            </Link>
+            </Col>
+            <Col md={6}>
+            <p>search bar</p>
+          </Col>
+        </Row>
 
         {filterable && (
           <FilterBar

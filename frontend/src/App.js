@@ -9,6 +9,7 @@ import Services from "./pages/Services";
 import Gallery from "./pages/Gallery";
 import Home from "./pages/Home";
 import Footer from "./components/Footer";
+import GalleryCreateForm from "./pages/GalleryCreateForm";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route exact path="/signup" render={() => <SignUpForm />} />
           <Route exact path="/services" render={() => <Services />} />
           <Route exact path="/gallery" render={() => <Gallery />} />
+          <Route exact path="/gallery/create" render={() => <GalleryCreateForm />} />
           <Route render={() => <p>Page not Found!</p>} />
         </Switch>
       </Container>

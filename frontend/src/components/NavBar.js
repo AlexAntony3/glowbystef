@@ -28,13 +28,13 @@ const NavBar = () => {
 
   const loggedInIcons = (
     <>
-      <NavLink
+      {/* <NavLink
         className={styles.NavLink}
         activeClassName={styles.Active}
         to="/liked"
       >
         LIKED
-      </NavLink>
+      </NavLink> */}
       <NavDropdown title={<>PROFILE</>} className={styles.DropdownLink}>
         <NavLink
           className={styles.NavLink}
