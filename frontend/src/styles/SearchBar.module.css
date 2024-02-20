@@ -1,0 +1,23 @@
+.searchBox input {
+  width: 100%;
+  position: relative;
+  display: flex;
+  text-align: center;
+  margin: auto;
+}
+
+.searchIcon {
+    background-color: transparent;
+    position: absolute;
+    font-size: 18px;
+    border:none;
+    color: #6c6c6c;
+    transition: all .4s;
+    z-index: 10;
+}
+
+.searchIcon:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+  color: black;
+}

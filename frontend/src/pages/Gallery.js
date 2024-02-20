@@ -4,12 +4,20 @@ import appStyles from "../App.module.css";
 import styles from "../styles/Gallery.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSliders } from "@fortawesome/free-solid-svg-icons";
-import { Button, Row, CardColumns, Col, Container } from "react-bootstrap";
+import {
+  Button,
+  Row,
+  CardColumns,
+  Col,
+  Container,
+  Form,
+} from "react-bootstrap";
 import GalleryCard from "../components/GalleryCard";
 import FilterBar from "../components/FilterBar";
 import UploadPhotoModal from "../components/UploadPhotoModal";
 import btnStyles from "../styles/Button.module.css";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import searchStyles from "../styles/SearchBar.module.css";
 
 const Gallery = () => {
   const [galleryImages, setGalleryImages] = useState([]);
@@ -19,6 +27,8 @@ const Gallery = () => {
   const [filteredResults, setFilteredResults] = useState([]);
   const [show, setShow] = useState(false);
 
+  const [searchValue, setSearchValue] = useState("");
+
   useEffect(() => {
     getGalleryImages();
   }, []);
@@ -26,7 +36,7 @@ const Gallery = () => {
   useEffect(() => {
     filterResults();
     setGalleryImages(filteredResults);
-  }, [searchTerm]);
+  }, [searchValue]);
 
   const filterResults = () => {
     const list = new Array();
@@ -41,7 +51,7 @@ const Gallery = () => {
 
   const getGalleryImages = async () =>
     await axiosRes
-      .get("/galleries/")
+      .get(`/galleries/?search=${searchValue}`)
       .then((response) => {
         setResults(response.data.results);
         setGalleryImages(response.data.results);
@@ -68,7 +78,7 @@ const Gallery = () => {
             <FontAwesomeIcon icon={faSliders} size="xs" />
           </span>
         </h1>
-        <Row className="mb-2 mt-2"> 
+        <Row className="mb-2 mt-2">
           <Col md={6}>
             <Link to="/gallery/create">
               <Button
@@ -77,9 +87,20 @@ const Gallery = () => {
                 [+] Add your own photo!
               </Button>
             </Link>
-            </Col>
-            <Col md={6}>
-            <p>search bar</p>
+          </Col>
+          <Col md={6}>
+            <i className={`fas fa-search ${searchStyles.searchIcon}`} />
+            <Form
+              className={`${searchStyles.searchBox}`}
+              onSubmit={(e) => e.preventDefault()}
+            >
+              <Form.Control
+                value={searchValue}
+                onChange={(e) => setSearchValue(e.target.value)}
+                type="text"
+                placeholder="Search the Gallery"
+              />
+            </Form>
           </Col>
         </Row>
 
