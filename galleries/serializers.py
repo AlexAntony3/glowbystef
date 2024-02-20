@@ -13,9 +13,10 @@ class GallerySerializer(serializers.ModelSerializer):
     class Meta:
         model = Gallery
         fields = [
-            'id' ,'owner', 'created_at', 'description',
+            'id' , 'created_at', 'description',
             'image', 'title', 'like_id', 'likes_count'
         ]
+        optional_fields = ['owner']
 
     def get_like_id(self, obj):
         user = self.context['request'].user

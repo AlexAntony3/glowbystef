@@ -49,6 +49,10 @@
     max-width: 100%;
     object-fit: contain;
   }
+
+  .Preview {
+    min-height: 400px;
+  }
   
   * {
     box-sizing: border-box;
