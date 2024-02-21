@@ -32,6 +32,21 @@ const Gallery = () => {
     }
   };
 
+  const handleIdFromCard = async (id) => {
+    await onDelete(id);
+  };
+
+  const onDelete = async (id) => {
+    try {
+      await axiosRes.delete(`/galleries/${id}/`);
+      setGalleryImages((prev) =>
+        prev.filter((image) => image.id !== id)
+      );
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   const handleSearch = () => {
     setGalleryImages(results);
   };
@@ -61,7 +76,7 @@ const Gallery = () => {
 
         <CardColumns>
           {galleryImages.map((image) => (
-            <GalleryCard key={`gallery-image-${image.id}`} {...image} />
+            <GalleryCard key={`gallery-image-${image.id}`} {...image} handleIdFromCard={handleIdFromCard} />
           ))}
         </CardColumns>
       </Container>

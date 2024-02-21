@@ -1,50 +1,65 @@
 .Button {
-    font-size: 0.8rem;
-    font-weight: 600;
-    letter-spacing: 2px;
-    align-self: center;
-    border-color: transparent;
-    padding: 4px 10px;
-    margin-left: 2px;
-    margin-right: 2px;
-    min-width: 75px;
-  }
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  align-self: center;
+  border-color: transparent;
+  padding: 4px 10px;
+  margin-left: 2px;
+  margin-right: 2px;
+  min-width: 75px;
+}
 
-  .ButtonMargin {
-    margin-top: 10px;
-  }
-  
-  .Button:hover {
-    opacity: 0.8;
-    border-color: transparent;
-    cursor: pointer;
-  }
-  
-  .Button:hover:active {
-    background-color: #24517C !important;
-  }
-  
-  .Button:active {
-    background-color: #24517C!important;
-  }
-  
-  .Button:focus {
-    background-color: #24517C;
-  }
-  
-  .Wide {
-    padding: 10px 50px;
-    width: 100%;
-  }
-  
-  
-  .Bright:hover {
-    background-color: #E4DCD1;
-    color: #24517C;
-  }
-  
-  
-  .Bright {
-    background-color: #24517C;
-    color: #ffffff;
-  }
+.ButtonMargin {
+  margin-top: 10px;
+}
+
+.Button:hover {
+  opacity: 0.8;
+  border-color: transparent;
+  cursor: pointer;
+}
+
+.Button:hover:active {
+  background-color: #24517c !important;
+}
+
+.Button:active {
+  background-color: #24517c !important;
+}
+
+.Button:focus {
+  background-color: #24517c;
+}
+
+.Wide {
+  padding: 10px 50px;
+  width: 100%;
+}
+
+.Bright:hover {
+  background-color: #e4dcd1;
+  color: #24517c;
+}
+
+.Bright {
+  background-color: #24517c;
+  color: #ffffff;
+}
+
+.NoBorderBtn {
+  border: none;
+  outline: none !important;
+  outline-offset: none !important;
+  background-color: none !important;
+}
+
+.NoBorderBtn:focus {
+  border: none !important;
+  background-color: transparent !important;
+}
+
+.NoBorderBtn:hover {
+  border: none !important;
+  background-color: transparent !important;
+}

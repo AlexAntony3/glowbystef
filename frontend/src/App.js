@@ -10,6 +10,7 @@ import Gallery from "./pages/Gallery";
 import Home from "./pages/Home";
 import Footer from "./components/Footer";
 import GalleryCreateForm from "./pages/GalleryCreateForm";
+import GalleryUpdateForm from "./pages/GalleryUpdateForm";
 import { useCurrentUser } from "./contexts/CurrentUserContext";
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
           <Route exact path="/services" render={() => <Services />} />
           <Route exact path="/gallery" render={() => <Gallery />} />
           {currentUser && <Route exact path="/gallery/create" render={() => <GalleryCreateForm />} />}
+          {currentUser && <Route exact path="/gallery/:id/update" render={() => <GalleryUpdateForm />} />}
           <Route render={() => <p>Page not Found!</p>} />
         </Switch>
       </Container>

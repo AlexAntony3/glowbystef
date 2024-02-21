@@ -1,12 +1,10 @@
 import React, { useState } from "react";
-import {
-  Card,
-  OverlayTrigger,
-  Tooltip,
-} from "react-bootstrap";
+import { Button, Card, OverlayTrigger, Tooltip } from "react-bootstrap";
 import styles from "../styles/Gallery.module.css";
 import { useCurrentUser } from "../contexts/CurrentUserContext";
 import { axiosRes } from "../api/axiosDefaults";
+import { Link, useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import btnStyles from "../styles/Button.module.css";
 
 const GalleryCard = ({
   id,
@@ -15,11 +13,13 @@ const GalleryCard = ({
   image,
   like_id,
   likes_count,
+  handleIdFromCard
 }) => {
   const currentUser = useCurrentUser();
 
   const [likesCount, setLikesCount] = useState(likes_count);
   const [likeId, setLikeId] = useState(like_id);
+  const history = useHistory();
 
   const handleLike = async () => {
     try {
@@ -39,6 +39,10 @@ const GalleryCard = ({
     } catch (error) {
       console.log(error);
     }
+  };
+
+  const idForDelete = () => {
+    handleIdFromCard(id);
   };
 
   return (
@@ -70,6 +74,17 @@ const GalleryCard = ({
           </OverlayTrigger>
         )}
         {likesCount}
+        {currentUser && (
+          <Link
+            to={`/gallery/${id}/update/`}
+          >
+            <Button
+              variant="outline-primary"
+              className={`far fa-edit ${btnStyles.NoBorderBtn}`}
+            ></Button>
+          </Link>
+        )}
+        <i onClick={idForDelete} className="fa-solid fa-trash"></i>
       </Card.Footer>
     </Card>
   );
