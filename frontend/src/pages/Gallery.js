@@ -4,118 +4,65 @@ import appStyles from "../App.module.css";
 import styles from "../styles/Gallery.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSliders } from "@fortawesome/free-solid-svg-icons";
-import {
-  Button,
-  Row,
-  CardColumns,
-  Col,
-  Container,
-  Form,
-} from "react-bootstrap";
+import { CardColumns, Container } from "react-bootstrap";
 import GalleryCard from "../components/GalleryCard";
 import FilterBar from "../components/FilterBar";
-import UploadPhotoModal from "../components/UploadPhotoModal";
-import btnStyles from "../styles/Button.module.css";
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
-import searchStyles from "../styles/SearchBar.module.css";
+import { useCurrentUser } from "../contexts/CurrentUserContext";
 
 const Gallery = () => {
+  const currentUser = useCurrentUser();
   const [galleryImages, setGalleryImages] = useState([]);
-  const [filterable, setFilterable] = useState();
-  const [searchTerm, setSearchTerm] = useState("");
+  const [filterable, setFilterable] = useState(false);
   const [results, setResults] = useState([]);
-  const [filteredResults, setFilteredResults] = useState([]);
-  const [show, setShow] = useState(false);
-
   const [searchValue, setSearchValue] = useState("");
 
   useEffect(() => {
     getGalleryImages();
-  }, []);
-
-  useEffect(() => {
-    filterResults();
-    setGalleryImages(filteredResults);
   }, [searchValue]);
 
-  const filterResults = () => {
-    const list = new Array();
-    searchTerm &&
-      results.map((result) => {
-        if (result.title.toLowerCase().indexOf(searchTerm.toLowerCase()) >= 0) {
-          list.push(result);
-        }
-      });
-    list.length !== 0 ? setFilteredResults(() => list) : getGalleryImages();
+  const getGalleryImages = async () => {
+    try {
+      const response = await axiosRes.get(`/galleries/?search=${searchValue}`);
+      setResults(response.data.results);
+      setGalleryImages(response.data.results);
+    } catch (err) {
+      console.error(err);
+      setResults([]);
+      setGalleryImages([]);
+    }
   };
 
-  const getGalleryImages = async () =>
-    await axiosRes
-      .get(`/galleries/?search=${searchValue}`)
-      .then((response) => {
-        setResults(response.data.results);
-        setGalleryImages(response.data.results);
-      })
-      .catch((err) => {
-        setResults([]);
-        setGalleryImages([]);
-      });
+  const handleSearch = () => {
+    setGalleryImages(results);
+  };
 
   return (
     <>
-      <UploadPhotoModal
-        show={true}
-        onHide={() => setShow(false)}
-        fade={false}
-      />
       <Container className={`${appStyles.Content}`}>
         <h1 className={appStyles.Header}>
           Gallery
-          <span
-            className={styles.Filter}
-            onClick={() => setFilterable(!filterable)}
-          >
-            <FontAwesomeIcon icon={faSliders} size="xs" />
-          </span>
-        </h1>
-        <Row className="mb-2 mt-2">
-          <Col md={6}>
-            <Link to="/gallery/create">
-              <Button
-                className={`${btnStyles.Button} ${btnStyles.Bright} ${btnStyles.Wide}`}
-              >
-                [+] Add your own photo!
-              </Button>
-            </Link>
-          </Col>
-          <Col md={6}>
-            <i className={`fas fa-search ${searchStyles.searchIcon}`} />
-            <Form
-              className={`${searchStyles.searchBox}`}
-              onSubmit={(e) => e.preventDefault()}
+          {currentUser && (
+            <span
+              className={styles.Filter}
+              onClick={() => setFilterable(!filterable)}
             >
-              <Form.Control
-                value={searchValue}
-                onChange={(e) => setSearchValue(e.target.value)}
-                type="text"
-                placeholder="Search the Gallery"
-              />
-            </Form>
-          </Col>
-        </Row>
+              <FontAwesomeIcon icon={faSliders} size="xs" />
+            </span>
+          )}
+        </h1>
 
-        {filterable && (
+        {currentUser && filterable && (
           <FilterBar
             className={styles.FilterBar}
-            setSearchTerm={setSearchTerm}
-            setShowModal={setShow}
+            setSearchTerm={setSearchValue}
+            onSearch={handleSearch}
           />
         )}
 
         <CardColumns>
-          {galleryImages.map((image) => {
-            return <GalleryCard key={`gallery-image-${image.id}`} {...image} />;
-          })}
+          {galleryImages.map((image) => (
+            <GalleryCard key={`gallery-image-${image.id}`} {...image} />
+          ))}
         </CardColumns>
       </Container>
     </>

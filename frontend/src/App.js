@@ -10,8 +10,11 @@ import Gallery from "./pages/Gallery";
 import Home from "./pages/Home";
 import Footer from "./components/Footer";
 import GalleryCreateForm from "./pages/GalleryCreateForm";
+import { useCurrentUser } from "./contexts/CurrentUserContext";
 
 function App() {
+  const currentUser = useCurrentUser();
+
   return (
     <div className={styles.App}>
       <NavBar />
@@ -22,7 +25,7 @@ function App() {
           <Route exact path="/signup" render={() => <SignUpForm />} />
           <Route exact path="/services" render={() => <Services />} />
           <Route exact path="/gallery" render={() => <Gallery />} />
-          <Route exact path="/gallery/create" render={() => <GalleryCreateForm />} />
+          {currentUser && <Route exact path="/gallery/create" render={() => <GalleryCreateForm />} />}
           <Route render={() => <p>Page not Found!</p>} />
         </Switch>
       </Container>

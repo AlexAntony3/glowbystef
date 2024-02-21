@@ -8,33 +8,39 @@ import {
   ToggleButton,
 } from "react-bootstrap";
 import styles from "../styles/FilterBar.module.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import btnStyles from "../styles/Button.module.css";
 
-const FilterBar = ({ setSearchTerm, setShowModal }) => {
-  const [term, setTerm] = useState("");
+const FilterBar = ({ setSearchTerm }) => {
+  const [searchInput, setSearchInput] = useState("");
+  const [radioValue, setRadioValue] = useState("1");
+
   const radioOptions = [
     { name: "All", value: "1" },
     { name: "Liked", value: "2" },
-    { name: "My Uploads", value: "3" },
   ];
-  const [radioValue, setRadioValue] = useState("1");
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    setSearchTerm(searchInput.trim());
+  };
 
   return (
     <Row className={styles.FilterBar}>
       <Col sm={4}>
-        <Form className="d-flex">
+        <Form className="d-flex" onSubmit={handleSearch}>
           <Form.Control
             type="search"
             placeholder="E.g. funky nails"
             className="me-2 rounded-pill"
             aria-label="Search"
-            onChange={(event) => setTerm(event.target.value)}
+            value={searchInput}
+            onChange={(e) => setSearchInput(e.target.value)}
           />
           <Button
             className="rounded-pill"
             variant="outline-secondary"
-            onClick={() => term && setSearchTerm(term)}
+            type="submit"
           >
             Search
           </Button>
@@ -42,15 +48,15 @@ const FilterBar = ({ setSearchTerm, setShowModal }) => {
       </Col>
       <Col>
         <ButtonGroup toggle>
-          {radioOptions.map((option, idx) => (
+          {radioOptions.map((option) => (
             <ToggleButton
-              key={idx}
+              key={option.value}
               type="radio"
               variant="outline-secondary"
               name="radio"
               value={option.value}
               checked={radioValue === option.value}
-              onChange={(e) => setRadioValue(e.currentTarget.value)}
+              onChange={() => setRadioValue(option.value)}
             >
               {option.name}
             </ToggleButton>
@@ -58,10 +64,13 @@ const FilterBar = ({ setSearchTerm, setShowModal }) => {
         </ButtonGroup>
       </Col>
       <Col>
-        <Button type="button" variant="secondary" onClick={() => setShowModal(true)}>
-          <FontAwesomeIcon icon={faPlus} size="sm" />
-          Upload Photo
-        </Button>
+        <Link to="/gallery/create">
+          <Button
+            className={`${btnStyles.Button} ${btnStyles.Bright} ${btnStyles.Wide}`}
+          >
+            [+] Add your own photo!
+          </Button>
+        </Link>
       </Col>
     </Row>
   );
