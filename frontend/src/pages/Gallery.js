@@ -8,27 +8,34 @@ import { CardColumns, Container } from "react-bootstrap";
 import GalleryCard from "../components/GalleryCard";
 import FilterBar from "../components/FilterBar";
 import { useCurrentUser } from "../contexts/CurrentUserContext";
+import Asset from "../components/Asset";
+import NoResult from "../assets/noresult.png"
 
-const Gallery = () => {
+const Gallery = ({ message, filter = "" }) => {
   const currentUser = useCurrentUser();
   const [galleryImages, setGalleryImages] = useState([]);
   const [filterable, setFilterable] = useState(false);
   const [results, setResults] = useState([]);
   const [searchValue, setSearchValue] = useState("");
+  const [contentLoaded, setContentLoaded] = useState(false);
 
   useEffect(() => {
     getGalleryImages();
-  }, [searchValue]);
+  }, [searchValue, filter]);
 
   const getGalleryImages = async () => {
     try {
-      const response = await axiosRes.get(`/galleries/?search=${searchValue}`);
-      setResults(response.data.results);
+      const response = await axiosRes.get(
+        `/galleries/?${filter}search=${searchValue}`
+      );
+      // setResults(response.data.results);
       setGalleryImages(response.data.results);
+      setContentLoaded(true);
     } catch (err) {
       console.error(err);
-      setResults([]);
+      // setResults([]);
       setGalleryImages([]);
+      setContentLoaded(true);
     }
   };
 
@@ -39,9 +46,7 @@ const Gallery = () => {
   const onDelete = async (id) => {
     try {
       await axiosRes.delete(`/galleries/${id}/`);
-      setGalleryImages((prev) =>
-        prev.filter((image) => image.id !== id)
-      );
+      setGalleryImages((prev) => prev.filter((image) => image.id !== id));
     } catch (err) {
       console.log(err);
     }
@@ -73,12 +78,27 @@ const Gallery = () => {
             onSearch={handleSearch}
           />
         )}
-
-        <CardColumns>
-          {galleryImages.map((image) => (
-            <GalleryCard key={`gallery-image-${image.id}`} {...image} handleIdFromCard={handleIdFromCard} />
-          ))}
-        </CardColumns>
+        {contentLoaded ? (
+          galleryImages.length > 0 ? (
+            <CardColumns>
+              {galleryImages.map((image) => (
+                <GalleryCard
+                  key={`gallery-image-${image.id}`}
+                  {...image}
+                  handleIdFromCard={handleIdFromCard}
+                />
+              ))}
+            </CardColumns>
+          ) : (
+            <Container className="appStyles.Content">
+            <Asset src={NoResult} />
+            </Container>
+          )
+        ) : (
+          <Container className="appStyles.Content">
+          <Asset spinner />
+          </Container>
+        )}
       </Container>
     </>
   );
