@@ -13,7 +13,7 @@ const GalleryCard = ({
   image,
   like_id,
   likes_count,
-  handleIdFromCard
+  handleIdFromCard,
 }) => {
   const currentUser = useCurrentUser();
 
@@ -75,16 +75,16 @@ const GalleryCard = ({
         )}
         {likesCount}
         {currentUser && (
-          <Link
-            to={`/gallery/${id}/update/`}
-          >
+          <Link to={`/gallery/${id}/update/`}>
             <Button
               variant="outline-primary"
               className={`far fa-edit ${btnStyles.NoBorderBtn}`}
             ></Button>
           </Link>
         )}
-        <i onClick={idForDelete} className="fa-solid fa-trash"></i>
+        {currentUser && (
+          <i onClick={idForDelete} className="fa-solid fa-trash"></i>
+        )}
       </Card.Footer>
     </Card>
   );

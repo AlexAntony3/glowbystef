@@ -28,14 +28,19 @@ const NavBar = () => {
 
   const loggedInIcons = (
     <>
-      {/* <NavLink
-        className={styles.NavLink}
-        activeClassName={styles.Active}
-        to="/liked"
-      >
-        LIKED
-      </NavLink> */}
-      <NavDropdown title={<>PROFILE</>} className={styles.DropdownLink}>
+      <>
+        <NavLink
+          className={styles.NavLink}
+          activeClassName={styles.Active}
+          to={`/profiles/${currentUser?.profile_id}`}
+        >
+          <Avatar src={currentUser?.profile_image} text="ACCOUNT" height={35} />
+        </NavLink>
+        <NavLink className={styles.NavLink} to="/" onClick={handleSignOut}>
+          SIGN OUT
+        </NavLink>
+      </>
+      {/* <NavDropdown title={<>PROFILE</>} className={styles.DropdownLink}>
         <NavLink
           className={styles.NavLink}
           to={`/profiles/${currentUser?.profile_id}`}
@@ -46,7 +51,7 @@ const NavBar = () => {
         <NavLink className={styles.NavLink} to="/" onClick={handleSignOut}>
           Sign out
         </NavLink>
-      </NavDropdown>
+      </NavDropdown> */}
     </>
   );
 

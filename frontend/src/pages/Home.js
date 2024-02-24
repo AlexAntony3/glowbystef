@@ -34,7 +34,7 @@ const Home = () => {
         </h1>
         <Row>
           <Col sm={12} lg={6}>
-            <Image
+            <Image className="rounded"
               src="https://res.cloudinary.com/daeryvqkx/image/upload/v1701125618/dp_sp8lqu.jpg"
               fluid
             />
