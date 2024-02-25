@@ -9,7 +9,7 @@ import GalleryCard from "../components/GalleryCard";
 import FilterBar from "../components/FilterBar";
 import { useCurrentUser } from "../contexts/CurrentUserContext";
 import Asset from "../components/Asset";
-import NoResult from "../assets/noresult.png"
+import NoResult from "../assets/noresult.png";
 
 const Gallery = ({ message, filter = "" }) => {
   const currentUser = useCurrentUser();
@@ -18,22 +18,26 @@ const Gallery = ({ message, filter = "" }) => {
   const [results, setResults] = useState([]);
   const [searchValue, setSearchValue] = useState("");
   const [contentLoaded, setContentLoaded] = useState(false);
-
-  useEffect(() => {
-    getGalleryImages();
-  }, [searchValue, filter]);
+  const [radioValue, setRadioValue] = useState("1");
+  const profile_id = currentUser?.profile_id || "";
 
   const getGalleryImages = async () => {
     try {
-      const response = await axiosRes.get(
-        `/galleries/?${filter}search=${searchValue}`
-      );
-      // setResults(response.data.results);
+      let url = `/galleries/?`;
+      console.log("profile_id", profile_id);
+      console.log("radio value", radioValue);
+
+      if (radioValue === "2") {
+        url += `likes__owner__profile=${profile_id}`;
+      } else {
+        url += `search=${searchValue}`;
+      }
+      const response = await axiosRes.get(url);
+      console.log(response);
       setGalleryImages(response.data.results);
       setContentLoaded(true);
     } catch (err) {
       console.error(err);
-      // setResults([]);
       setGalleryImages([]);
       setContentLoaded(true);
     }
@@ -54,7 +58,22 @@ const Gallery = ({ message, filter = "" }) => {
 
   const handleSearch = () => {
     setGalleryImages(results);
+    console.log(searchValue)
   };
+
+  useEffect(() => {
+    if (currentUser) {
+      console.log("this is the current user", currentUser)
+    } else {
+      console.log("fetching the user");
+    }
+
+    getGalleryImages();
+  }, [searchValue, filter, radioValue]);
+
+  // const handleFilterChange = (value) => {
+  //   setCurrentFilter(value);
+  // }
 
   return (
     <>
@@ -74,6 +93,7 @@ const Gallery = ({ message, filter = "" }) => {
         {currentUser && filterable && (
           <FilterBar
             className={styles.FilterBar}
+            onRadioChange={setRadioValue}
             setSearchTerm={setSearchValue}
             onSearch={handleSearch}
           />
@@ -90,13 +110,13 @@ const Gallery = ({ message, filter = "" }) => {
               ))}
             </CardColumns>
           ) : (
-            <Container className="appStyles.Content">
-            <Asset src={NoResult} />
+            <Container className={`${appStyles.Content}`}>
+              <Asset src={NoResult} />
             </Container>
           )
         ) : (
-          <Container className="appStyles.Content">
-          <Asset spinner />
+          <Container className={`${appStyles.Content}`}>
+            <Asset spinner />
           </Container>
         )}
       </Container>

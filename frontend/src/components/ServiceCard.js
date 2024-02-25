@@ -12,16 +12,10 @@ const ServiceCard = (props) => {
         <Card.Body style={{ height: '10rem' }}>
           <Card.Title>{name}</Card.Title>
           <Card.Text >{description}</Card.Text>
-          <Card.Text >{`£${price}`}</Card.Text>
         </Card.Body>
         <Card.Footer>
           <small className="text-muted">{rating}</small>
-          <Button
-              className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.Bright}`}
-              type="submit"
-            >
-              Reviews
-            </Button>
+          <Card.Text >{`£${price}`}</Card.Text>
         </Card.Footer>
       </Card>
   );

@@ -3,37 +3,51 @@ import ServiceCard from "../components/ServiceCard";
 import { CardColumns, Container } from "react-bootstrap";
 import appStyles from "../App.module.css";
 import { axiosRes } from "../api/axiosDefaults";
-// import styles from "../../App.module.css";
+import Asset from "../components/Asset";
 
 const Services = () => {
   const [services, setServices] = useState([]);
+  const [contentLoaded, setContentLoaded] = useState(false);
+
   useEffect(() => {
     getServices();
   }, []);
 
-  const getServices = async () =>
-    await axiosRes
-      .get("/services/")
-      .then((response) => setServices(response.data.results))
-      .catch((err) => setServices([]));
+  const getServices = async () => {
+    try {
+      const response = await axiosRes.get("/services/");
+      setServices(response.data.results);
+      setContentLoaded(true);
+    } catch (err) {
+      console.error(err);
+      setServices([]);
+      setContentLoaded(true);
+    }
+  };
 
   return (
-    <Container className={`${appStyles.Content} p-4 `}>
+    <Container className={`${appStyles.Content} p-4`}>
       <h1 className={appStyles.Header}>Our Services</h1>
-      <CardColumns>
-        {services.map((service, index) => {
-          return (
-            <ServiceCard
-              key={service.id}
-              name={service?.name}
-              description={service?.description}
-              price={service?.price}
-              image={service?.image}
-              rating={service?.rating}
-            />
-          );
-        })}
-      </CardColumns>
+      {contentLoaded ? (
+        services.length > 0 ? (
+          <CardColumns>
+            {services.map((service) => (
+              <ServiceCard
+                key={service.id}
+                name={service?.name}
+                description={service?.description}
+                price={service?.price}
+                image={service?.image}
+                rating={service?.rating}
+              />
+            ))}
+          </CardColumns>
+        ) : (
+          <Container className={`${appStyles.Content}`}>
+            <Asset spinner />
+          </Container>
+        )
+      ) : null}
     </Container>
   );
 };

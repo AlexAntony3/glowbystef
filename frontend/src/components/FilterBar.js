@@ -11,7 +11,7 @@ import styles from "../styles/FilterBar.module.css";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import btnStyles from "../styles/Button.module.css";
 
-const FilterBar = ({ setSearchTerm }) => {
+const FilterBar = ({ setSearchTerm, onSearch, onRadioChange }) => {
   const [searchInput, setSearchInput] = useState("");
   const [radioValue, setRadioValue] = useState("1");
 
@@ -23,7 +23,13 @@ const FilterBar = ({ setSearchTerm }) => {
   const handleSearch = (e) => {
     e.preventDefault();
     setSearchTerm(searchInput.trim());
+    onSearch();
   };
+
+  const handleRadioChange = (value) => {
+    setRadioValue(value);
+    onRadioChange(value);
+  }
 
   return (
     <Row className={styles.FilterBar}>
@@ -56,7 +62,7 @@ const FilterBar = ({ setSearchTerm }) => {
               name="radio"
               value={option.value}
               checked={radioValue === option.value}
-              onChange={() => setRadioValue(option.value)}
+              onChange={() => handleRadioChange(option.value)}
             >
               {option.name}
             </ToggleButton>
@@ -68,7 +74,7 @@ const FilterBar = ({ setSearchTerm }) => {
           <Button
             className={`${btnStyles.Button} ${btnStyles.Bright} ${btnStyles.Wide}`}
           >
-            [+] Add your own photo!
+            [+] Add your own photo
           </Button>
         </Link>
       </Col>
