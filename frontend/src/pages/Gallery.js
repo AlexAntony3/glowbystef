@@ -10,10 +10,12 @@ import FilterBar from "../components/FilterBar";
 import { useCurrentUser } from "../contexts/CurrentUserContext";
 import Asset from "../components/Asset";
 import NoResult from "../assets/noresult.png";
+import InfiniteScroll from "react-infinite-scroll-component";
+import { fetchMoreData } from "../utils/utils";
 
 const Gallery = ({ message, filter = "" }) => {
   const currentUser = useCurrentUser();
-  const [galleryImages, setGalleryImages] = useState([]);
+  const [galleryImages, setGalleryImages] = useState({results: []});
   const [filterable, setFilterable] = useState(false);
   const [results, setResults] = useState([]);
   const [searchValue, setSearchValue] = useState("");
@@ -21,29 +23,7 @@ const Gallery = ({ message, filter = "" }) => {
   const [radioValue, setRadioValue] = useState("1");
   const profile_id = currentUser?.profile_id || "";
 
-  const getGalleryImages = async () => {
-    try {
-      let url = `/galleries/?`;
-      console.log("profile_id", profile_id);
-      console.log("radio value", radioValue);
-
-      if (radioValue === "2") {
-        url += `likes__owner__profile=${profile_id}`;
-      } else {
-        url += `search=${searchValue}`;
-      }
-      const response = await axiosRes.get(url);
-      console.log(response);
-      setGalleryImages(response.data.results);
-      setContentLoaded(true);
-    } catch (err) {
-      console.error(err);
-      setGalleryImages([]);
-      setContentLoaded(true);
-    }
-  };
-
-  const handleIdFromCard = async (id) => {
+    const handleIdFromCard = async (id) => {
     await onDelete(id);
   };
 
@@ -57,16 +37,32 @@ const Gallery = ({ message, filter = "" }) => {
   };
 
   const handleSearch = () => {
-    setGalleryImages(results);
-    console.log(searchValue)
+    // setGalleryImages(results);
+    console.log(searchValue);
   };
 
   useEffect(() => {
-    if (currentUser) {
-      console.log("this is the current user", currentUser)
-    } else {
-      console.log("fetching the user");
-    }
+    const getGalleryImages = async () => {
+      try {
+        let url = `/galleries/?`;
+        console.log("profile_id", profile_id);
+        console.log("radio value", radioValue);
+  
+        if (radioValue === "2") {
+          url += `likes__owner__profile=${profile_id}`;
+        } else {
+          url += `search=${searchValue}`;
+        }
+        const { data } = await axiosRes.get(url);
+        console.log(data);
+        setGalleryImages(data);
+        setContentLoaded(true);
+      } catch (err) {
+        console.error(err);
+        // setGalleryImages([]);
+        // setContentLoaded(true);
+      }
+    };
 
     getGalleryImages();
   }, [searchValue, filter, radioValue]);
@@ -99,16 +95,24 @@ const Gallery = ({ message, filter = "" }) => {
           />
         )}
         {contentLoaded ? (
-          galleryImages.length > 0 ? (
-            <CardColumns>
-              {galleryImages.map((image) => (
-                <GalleryCard
-                  key={`gallery-image-${image.id}`}
-                  {...image}
-                  handleIdFromCard={handleIdFromCard}
-                />
-              ))}
-            </CardColumns>
+          galleryImages.results.length > 0 ? (
+            <InfiniteScroll
+              children={
+                <CardColumns>
+                  {galleryImages.results.map((image) => (
+                    <GalleryCard
+                      key={`gallery-image-${image.id}`}
+                      {...image}
+                      handleIdFromCard={handleIdFromCard}
+                    />
+                  ))}
+                </CardColumns>
+              }
+              dataLength={galleryImages.results.length}
+              loader={<Asset spinner />}
+              hasMore={!!galleryImages.next}
+              next={() => fetchMoreData(galleryImages, setGalleryImages)}
+            />
           ) : (
             <Container className={`${appStyles.Content}`}>
               <Asset src={NoResult} />
