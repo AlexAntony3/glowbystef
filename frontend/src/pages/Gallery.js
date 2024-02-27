@@ -15,7 +15,7 @@ import { fetchMoreData } from "../utils/utils";
 
 const Gallery = ({ message, filter = "" }) => {
   const currentUser = useCurrentUser();
-  const [galleryImages, setGalleryImages] = useState({results: []});
+  const [galleryImages, setGalleryImages] = useState({ results: [] });
   const [filterable, setFilterable] = useState(false);
   const [results, setResults] = useState([]);
   const [searchValue, setSearchValue] = useState("");
@@ -23,14 +23,17 @@ const Gallery = ({ message, filter = "" }) => {
   const [radioValue, setRadioValue] = useState("1");
   const profile_id = currentUser?.profile_id || "";
 
-    const handleIdFromCard = async (id) => {
+  const handleIdFromCard = async (id) => {
     await onDelete(id);
   };
 
   const onDelete = async (id) => {
     try {
       await axiosRes.delete(`/galleries/${id}/`);
-      setGalleryImages((prev) => prev.filter((image) => image.id !== id));
+      setGalleryImages((prev) => ({
+        ...prev,
+        results: prev.results.filter((image) => image.id !== id),
+      }));
     } catch (err) {
       console.log(err);
     }
@@ -47,7 +50,7 @@ const Gallery = ({ message, filter = "" }) => {
         let url = `/galleries/?`;
         console.log("profile_id", profile_id);
         console.log("radio value", radioValue);
-  
+
         if (radioValue === "2") {
           url += `likes__owner__profile=${profile_id}`;
         } else {
@@ -124,6 +127,7 @@ const Gallery = ({ message, filter = "" }) => {
           </Container>
         )}
       </Container>
+      console.log(galleryImages)
     </>
   );
 };

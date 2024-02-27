@@ -71,12 +71,14 @@ function GalleryUpdateForm(galleryProp) {
 
     formData.append("title", title);
     formData.append("description", description);
-    formData.append("image", imageInput.current.files[0]);
+    
+    if (imageInput?.current?.files[0]) {
+      formData.append("image", imageInput.current.files[0]);
+    }
 
     try {
-      const { data } = await axiosReq.put(`/galleries/${id}/`, formData);
+      await axiosReq.put(`/galleries/${id}/`, formData);
       history.push("/gallery/");
-      console.log(data.message);
     } catch (error) {
       console.log(error);
       if (error.response?.status !== 401) {
@@ -109,15 +111,15 @@ function GalleryUpdateForm(galleryProp) {
 
       <Button
         className={`${btnStyles.Button} ${btnStyles.Bright} `}
-        onClick={() => {}}
+        onClick={() => history.goBack()}
       >
-        cancel
+        Cancel
       </Button>
       <Button
         className={`${btnStyles.Button} ${btnStyles.Bright}`}
         type="submit"
       >
-        create
+        Update
       </Button>
     </div>
   );
