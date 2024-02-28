@@ -1,8 +1,8 @@
-import NavBar from "./components/NavBar";
-import styles from "./App.module.css";
 import { Container } from "react-bootstrap";
 import { Route, Switch } from "react-router-dom";
-import "./api/axiosDefaults";
+import { useCurrentUser } from "./contexts/CurrentUserContext";
+
+import NavBar from "./components/NavBar";
 import SignUpForm from "./pages/auth/SignUpForm";
 import SignInForm from "./pages/auth/SignInForm";
 import Services from "./pages/Services";
@@ -11,9 +11,10 @@ import Home from "./pages/Home";
 import Footer from "./components/Footer";
 import GalleryCreateForm from "./pages/GalleryCreateForm";
 import GalleryUpdateForm from "./pages/GalleryUpdateForm";
-import { useCurrentUser } from "./contexts/CurrentUserContext";
 import NotFound from "./components/NotFound";
-import footerStyles from "./styles/Footer.module.css"
+
+import "./api/axiosDefaults";
+import styles from "./App.module.css";
 
 function App() {
   const currentUser = useCurrentUser();

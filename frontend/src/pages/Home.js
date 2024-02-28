@@ -8,10 +8,12 @@ import {
   ListGroup,
   Jumbotron,
 } from "react-bootstrap";
+import { Link } from "react-router-dom";
+
 import appStyles from "../App.module.css";
 import styles from "../styles/Home.module.css";
 import btnStyles from "../styles/Button.module.css"
-import { Link } from "react-router-dom";
+
 
 const Home = () => {
   return (

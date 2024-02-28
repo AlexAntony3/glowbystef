@@ -5,19 +5,20 @@ import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
-
-import Upload from "../assets/upload.png";
-import appStyles from "../App.module.css";
-import btnStyles from "../styles/Button.module.css";
-import Asset from "../components/Asset";
 import { Alert, Image } from "react-bootstrap";
 import {
   useHistory,
   useParams,
 } from "react-router-dom/cjs/react-router-dom.min";
+
+import Asset from "../components/Asset";
+
+import Upload from "../assets/upload.png";
+import appStyles from "../App.module.css";
+import btnStyles from "../styles/Button.module.css";
 import { axiosReq, axiosRes } from "../api/axiosDefaults";
 
-function GalleryUpdateForm(galleryProp) {
+function GalleryUpdateForm() {
   const { id } = useParams();
   const [errors, setErrors] = useState({});
   const [galleryInfo, setGalleryInfo] = useState({

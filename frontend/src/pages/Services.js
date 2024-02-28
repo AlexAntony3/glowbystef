@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
-import ServiceCard from "../components/ServiceCard";
 import { CardColumns, Container } from "react-bootstrap";
+
+import ServiceCard from "../components/ServiceCard";
+import Asset from "../components/Asset";
+
 import appStyles from "../App.module.css";
 import { axiosRes } from "../api/axiosDefaults";
-import Asset from "../components/Asset";
 
 const Services = () => {
   const [services, setServices] = useState([]);

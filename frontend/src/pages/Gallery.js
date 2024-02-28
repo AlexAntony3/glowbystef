@@ -1,17 +1,20 @@
 import React, { useEffect, useState } from "react";
-import { axiosRes } from "../api/axiosDefaults";
-import appStyles from "../App.module.css";
-import styles from "../styles/Gallery.module.css";
+
+import GalleryCard from "../components/GalleryCard";
+import FilterBar from "../components/FilterBar";
+import Asset from "../components/Asset";
+import InfiniteScroll from "react-infinite-scroll-component";
+import NoResult from "../assets/noresult.png";
+import { useCurrentUser } from "../contexts/CurrentUserContext";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSliders } from "@fortawesome/free-solid-svg-icons";
 import { CardColumns, Container } from "react-bootstrap";
-import GalleryCard from "../components/GalleryCard";
-import FilterBar from "../components/FilterBar";
-import { useCurrentUser } from "../contexts/CurrentUserContext";
-import Asset from "../components/Asset";
-import NoResult from "../assets/noresult.png";
-import InfiniteScroll from "react-infinite-scroll-component";
+
 import { fetchMoreData } from "../utils/utils";
+import appStyles from "../App.module.css";
+import styles from "../styles/Gallery.module.css";
+import { axiosRes } from "../api/axiosDefaults";
 
 const Gallery = ({ filter = "" }) => {
   const currentUser = useCurrentUser();
