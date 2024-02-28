@@ -1,109 +1,111 @@
 .App {
-    font-family: "Roboto", sans-serif;
-    background-color: #f8f8f8;
-    min-height: 100vh;
-  }
+  font-family: "Roboto", sans-serif;
+  background-color: #f8f8f8;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
 
-  .Spacing {
-    padding-top: 140px;
-  }
+.Spacing {
+  padding-top: 140px;
+}
 
-  .Header {
-    font-weight: bold;
-    font-size: 30px;
-    text-align: center;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: #24517C;
-    border-bottom: 2px solid #24517C;
-    padding-bottom: 10px;
-  }
+.Header {
+  font-weight: bold;
+  font-size: 30px;
+  text-align: center;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #24517c;
+  border-bottom: 2px solid #24517c;
+  padding-bottom: 10px;
+}
 
-  .Content {
-    background-color: #ffffff;
-    padding: 10px;
-    border-radius: 2px;
-    border: 1px solid #dadadf;
-  }
-  
-  .FillerImage {
-    object-fit: cover;
-    height: 100%;
-    width: 100%;
-    border: 2px solid #24517C;
-  }
-  
-  .FullWidth {
-    left: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
-    max-width: 100vw;
-    position: relative;
-    right: 50%;
-    width: 100vw;
-    overflow: hidden;
-  }
+.Content {
+  background-color: #ffffff;
+  padding: 10px;
+  border-radius: 2px;
+  border: 1px solid #dadadf;
+}
 
-  .Image {
-    max-height: 40vh;
-    max-width: 100%;
-    object-fit: contain;
-  }
+.FillerImage {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+  border: 2px solid #24517c;
+}
 
-  .Preview {
-    min-height: 400px;
-  }
-  
-  * {
-    box-sizing: border-box;
-  }
-  
-  a {
-    color: #555555;
-    transition: color ease-in-out 0.3s;
-  }
-  
-  a:hover {
-    text-decoration: none;
-  }
-  
-  a:hover i {
-    color: rgba(21, 51, 82, 0.644);
-    transition: color ease-in-out 0.3s;
-  }
+.FullWidth {
+  left: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  max-width: 100vw;
+  position: relative;
+  right: 50%;
+  width: 100vw;
+  overflow: hidden;
+}
 
-  input[type="file"] {
-    display: none;
-  }
-  
-  i {
-    color: #24517C;
-    font-size: 1.6rem;
-    padding: 8px;
-    vertical-align: middle;
-  }
+.Image {
+  max-height: 40vh;
+  max-width: 100%;
+  object-fit: contain;
+}
 
-  i:hover {
-    cursor: pointer;
-    transition: color ease-in-out 0.3s;
-    color: #2142b2;
-  }
+.Preview {
+  min-height: 400px;
+}
 
-  figure {
-    text-align: center;
-    display: inline-block;
-  }
-  
-  /* scrollbar */
-  *::-webkit-scrollbar {
-    width: 5px;
-  }
-  *::-webkit-scrollbar-track {
-    background: #f1f1f1;
-  }
-  *::-webkit-scrollbar-thumb {
-    background: #888;
-  }
-  *::-webkit-scrollbar-thumb:hover {
-    background: #555;
-  }
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: #555555;
+  transition: color ease-in-out 0.3s;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a:hover i {
+  color: rgba(21, 51, 82, 0.644);
+  transition: color ease-in-out 0.3s;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+i {
+  color: #24517c;
+  font-size: 1.6rem;
+  padding: 8px;
+  vertical-align: middle;
+}
+
+i:hover {
+  cursor: pointer;
+  transition: color ease-in-out 0.3s;
+  color: #2142b2;
+}
+
+figure {
+  text-align: center;
+  display: inline-block;
+}
+
+/* scrollbar */
+*::-webkit-scrollbar {
+  width: 5px;
+}
+*::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+*::-webkit-scrollbar-thumb {
+  background: #888;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

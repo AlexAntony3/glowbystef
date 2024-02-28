@@ -1,8 +1,7 @@
 .Footer {
     background-color: #E4DCD1;
-    position: sticky;
     padding: 10px;
     filter: invert(100%);
-    
+    margin-bottom: auto;
+    width: 100%;
 }
-

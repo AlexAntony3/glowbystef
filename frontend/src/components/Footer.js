@@ -5,9 +5,8 @@ import gbslogo from "../assets/gbslogo.png";
 
 const Footer = () => {
   return (
-    <div className={styles.Footer}>
-      <Container>
-        <Row className="d-flex align-items-center">
+      <Container fluid className={`${styles.Footer}`}>
+        <Row>
           <Col>
             <img src={gbslogo} alt="logo" height="100" />
           </Col>
@@ -62,7 +61,6 @@ const Footer = () => {
           </Col>
         </Row>
       </Container>
-    </div>
   );
 };
 

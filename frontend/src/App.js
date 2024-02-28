@@ -12,6 +12,8 @@ import Footer from "./components/Footer";
 import GalleryCreateForm from "./pages/GalleryCreateForm";
 import GalleryUpdateForm from "./pages/GalleryUpdateForm";
 import { useCurrentUser } from "./contexts/CurrentUserContext";
+import NotFound from "./components/NotFound";
+import footerStyles from "./styles/Footer.module.css"
 
 function App() {
   const currentUser = useCurrentUser();
@@ -28,10 +30,10 @@ function App() {
           <Route exact path="/gallery" render={() => <Gallery />} />
           {currentUser && <Route exact path="/gallery/create" render={() => <GalleryCreateForm />} />}
           {currentUser && <Route exact path="/gallery/:id/update" render={() => <GalleryUpdateForm />} />}
-          <Route render={() => <p>Page not Found!</p>} />
+          <Route render={() => <NotFound /> } />
         </Switch>
       </Container>
-      <Footer />
+      <Footer/>
     </div>
   );
 }
