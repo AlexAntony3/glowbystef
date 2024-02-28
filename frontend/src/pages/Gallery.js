@@ -17,6 +17,7 @@ const Gallery = ({ message, filter = "" }) => {
   const currentUser = useCurrentUser();
   const [galleryImages, setGalleryImages] = useState({ results: [] });
   const [filterable, setFilterable] = useState(false);
+  // const [results, setResults] = useState([]);
   const [searchValue, setSearchValue] = useState("");
   const [contentLoaded, setContentLoaded] = useState(false);
   const [radioValue, setRadioValue] = useState("1");

@@ -10,7 +10,7 @@ import Upload from "../assets/upload.png";
 import appStyles from "../App.module.css";
 import btnStyles from "../styles/Button.module.css";
 import Asset from "../components/Asset";
-import { Image } from "react-bootstrap";
+import { Alert, Image } from "react-bootstrap";
 import {
   useHistory,
   useParams,
@@ -35,7 +35,7 @@ function GalleryUpdateForm(galleryProp) {
         const { data } = await axiosRes.get(`/galleries/${id}`);
         const { title, description, image, is_owner } = data;
 
-        console.log(is_owner);
+        // console.log(is_owner);
 
         // is_owner ?  //TODO
         setGalleryInfo({ title, description, image });
@@ -98,6 +98,12 @@ function GalleryUpdateForm(galleryProp) {
           onChange={handleChange}
         />
       </Form.Group>
+      {errors?.title?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+
       <Form.Group>
         <Form.Label>Description</Form.Label>
         <Form.Control
@@ -108,6 +114,11 @@ function GalleryUpdateForm(galleryProp) {
           onChange={handleChange}
         />
       </Form.Group>
+      {errors?.description?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
 
       <Button
         className={`${btnStyles.Button} ${btnStyles.Bright} `}
@@ -164,6 +175,11 @@ function GalleryUpdateForm(galleryProp) {
                 ref={imageInput}
               />
             </Form.Group>
+            {errors?.image?.map((message, idx) => (
+              <Alert variant="warning" key={idx}>
+                {message}
+              </Alert>
+            ))}
             <div className="d-md-none">{textFields}</div>
           </Container>
         </Col>

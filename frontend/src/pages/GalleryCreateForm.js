@@ -10,7 +10,7 @@ import Upload from "../assets/upload.png";
 import appStyles from "../App.module.css";
 import btnStyles from "../styles/Button.module.css";
 import Asset from "../components/Asset";
-import { Image } from "react-bootstrap";
+import { Alert, Image } from "react-bootstrap";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../api/axiosDefaults";
 
@@ -54,9 +54,9 @@ function GalleryCreateForm() {
     formData.append("image", imageInput.current.files[0]);
 
     try {
-      const { data } = await axiosReq.post('/galleries/', formData);
-      history.push('/gallery/');
-      console.log(data.message)
+      const { data } = await axiosReq.post("/galleries/", formData);
+      history.push("/gallery/");
+      console.log(data.message);
     } catch (error) {
       console.log(error);
       if (error.response?.status !== 401) {
@@ -76,6 +76,11 @@ function GalleryCreateForm() {
           onChange={handleChange}
         />
       </Form.Group>
+      {errors?.title?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
       <Form.Group>
         <Form.Label>Description</Form.Label>
         <Form.Control
@@ -85,6 +90,11 @@ function GalleryCreateForm() {
           value={description}
           onChange={handleChange}
         />
+        {errors?.description?.map((message, idx) => (
+          <Alert variant="warning" key={idx}>
+            {message}
+          </Alert>
+        ))}
       </Form.Group>
 
       <Button
@@ -142,6 +152,11 @@ function GalleryCreateForm() {
                 ref={imageInput}
               />
             </Form.Group>
+            {errors?.image?.map((message, idx) => (
+              <Alert variant="warning" key={idx}>
+                {message}
+              </Alert>
+            ))}
             <div className="d-md-none">{textFields}</div>
           </Container>
         </Col>

@@ -47,7 +47,7 @@ const GalleryCard = ({
 
   return (
     <Card className={styles.GalleryContentDisplay}>
-      <Card.Img variant="top" src={image} />
+      <Card.Img variant="top" src={image} alt={title} />
       <Card.ImgOverlay>
         {title && <Card.Title>{title}</Card.Title>}
         {description && <Card.Text>{description}</Card.Text>}
@@ -73,18 +73,21 @@ const GalleryCard = ({
             <i className="far fa-heart"></i>
           </OverlayTrigger>
         )}
-        {likesCount}
-        {currentUser && is_owner && (
-          <Link to={`/gallery/${id}/update/`}>
-            <Button
-              variant="outline-primary"
-              className={`far fa-edit ${btnStyles.NoBorderBtn}`}
-            ></Button>
-          </Link>
-        )}
-        {currentUser && is_owner && (
-          <i onClick={idForDelete} className="fa-solid fa-trash"></i>
-        )}
+          {likesCount}
+          {currentUser && is_owner && (
+            <Link to={`/gallery/${id}/update/`}>
+              <Button
+                variant="outline-primary"
+                className={`far fa-edit ${btnStyles.NoBorderBtn} ${styles.EditDeleteBtn}`}
+              ></Button>
+            </Link>
+          )}
+          {currentUser && is_owner && (
+            <i
+              onClick={idForDelete}
+              className={`fa-solid fa-trash ${styles.EditDeleteBtn} `}
+            ></i>
+          )}
       </Card.Footer>
     </Card>
   );

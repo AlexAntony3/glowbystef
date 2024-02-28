@@ -31,7 +31,7 @@
 
 .LikeButton {
   position: relative;
-  color:darkred !important;
+  color:#24517C !important;
   font-size: 17px;
   text-align: center;
   background-image: none !important;
@@ -68,4 +68,9 @@
 .FilterBar {
   padding: 20px;
   margin: 20px;
+}
+
+.EditDeleteBtn {
+  font-size: 17px;
+  color: #24517C;
 }
