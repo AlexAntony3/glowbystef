@@ -27,7 +27,7 @@ const GalleryCard = ({
       setLikesCount((prevCount) => ++prevCount);
       setLikeId(data.id);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
 
@@ -37,7 +37,7 @@ const GalleryCard = ({
       setLikesCount((prevCount) => --prevCount);
       setLikeId(null);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
 

@@ -13,11 +13,10 @@ import NoResult from "../assets/noresult.png";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../utils/utils";
 
-const Gallery = ({ message, filter = "" }) => {
+const Gallery = ({ filter = "" }) => {
   const currentUser = useCurrentUser();
   const [galleryImages, setGalleryImages] = useState({ results: [] });
   const [filterable, setFilterable] = useState(false);
-  // const [results, setResults] = useState([]);
   const [searchValue, setSearchValue] = useState("");
   const [contentLoaded, setContentLoaded] = useState(false);
   const [radioValue, setRadioValue] = useState("1");
@@ -35,21 +34,14 @@ const Gallery = ({ message, filter = "" }) => {
         results: prev.results.filter((image) => image.id !== id),
       }));
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
-
-  // const handleSearch = () => {
-  //   // setGalleryImages(results);
-  //   console.log(searchValue);
-  // };
 
   useEffect(() => {
     const getGalleryImages = async () => {
       try {
         let url = `/galleries/?`;
-        console.log("profile_id", profile_id);
-        console.log("radio value", radioValue);
 
         if (radioValue === "2") {
           url += `likes__owner__profile=${profile_id}`;
@@ -57,22 +49,15 @@ const Gallery = ({ message, filter = "" }) => {
           url += `search=${searchValue}`;
         }
         const { data } = await axiosRes.get(url);
-        console.log(data);
         setGalleryImages(data);
         setContentLoaded(true);
       } catch (err) {
         console.error(err);
-        // setGalleryImages([]);
-        // setContentLoaded(true);
       }
     };
 
     getGalleryImages();
   }, [searchValue, filter, radioValue, profile_id]);
-
-  // const handleFilterChange = (value) => {
-  //   setCurrentFilter(value);
-  // }
 
   return (
     <>
@@ -94,7 +79,6 @@ const Gallery = ({ message, filter = "" }) => {
             className={styles.FilterBar}
             onRadioChange={setRadioValue}
             setSearchTerm={setSearchValue}
-            // onSearch={handleSearch}
           />
         )}
         {contentLoaded ? (

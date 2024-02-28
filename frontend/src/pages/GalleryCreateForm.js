@@ -58,7 +58,7 @@ function GalleryCreateForm() {
       history.push("/gallery/");
       console.log(data.message);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       if (error.response?.status !== 401) {
         setErrors(error.response?.data);
       }

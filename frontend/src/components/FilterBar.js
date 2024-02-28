@@ -11,7 +11,7 @@ import styles from "../styles/FilterBar.module.css";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import btnStyles from "../styles/Button.module.css";
 
-const FilterBar = ({ setSearchTerm, onSearch, onRadioChange }) => {
+const FilterBar = ({ setSearchTerm, onRadioChange }) => {
   const [searchInput, setSearchInput] = useState("");
   const [radioValue, setRadioValue] = useState("1");
 
@@ -23,7 +23,6 @@ const FilterBar = ({ setSearchTerm, onSearch, onRadioChange }) => {
   const handleSearch = (e) => {
     e.preventDefault();
     setSearchTerm(searchInput.trim());
-    // onSearch();
   };
 
   const handleRadioChange = (value) => {

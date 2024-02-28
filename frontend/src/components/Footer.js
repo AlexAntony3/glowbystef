@@ -26,7 +26,6 @@ const Footer = () => {
           </Col>
           <Col className="text-center">
             <h5>
-              {/* <strong>Follow me!</strong> */}
               <a
                 href="https://www.facebook.com"
                 aria-label="link to my facebook page"

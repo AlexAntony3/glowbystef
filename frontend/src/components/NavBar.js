@@ -21,36 +21,17 @@ const NavBar = () => {
       await axios.post("dj-rest-auth/logout/");
       setCurrentUser(null);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
 
   const loggedInIcons = (
     <>
       <>
-        {/* <NavLink
-          className={styles.NavLink}
-          activeClassName={styles.Active}
-          to={`/profiles/${currentUser?.profile_id}`}
-        >
-          <Avatar src={currentUser?.profile_image} text={`welcome back ${currentUser?.profile_owner}`} height={35} />
-        </NavLink> */}
         <NavLink className={styles.NavLink} to="/" onClick={handleSignOut}>
           SIGN OUT
         </NavLink>
       </>
-      {/* <NavDropdown title={<>PROFILE</>} className={styles.DropdownLink}>
-        <NavLink
-          className={styles.NavLink}
-          to={`/profiles/${currentUser?.profile_id}`}
-        >
-          <Avatar src={currentUser?.profile_image} text="Account" height={40} />
-        </NavLink>
-        <NavDropdown.Divider />
-        <NavLink className={styles.NavLink} to="/" onClick={handleSignOut}>
-          Sign out
-        </NavLink>
-      </NavDropdown> */}
     </>
   );
 

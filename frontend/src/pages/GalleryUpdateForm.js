@@ -38,7 +38,7 @@ function GalleryUpdateForm(galleryProp) {
         setGalleryInfo({ title, description, image });
 
       } catch (error) {
-        console.log(error);
+        // console.log(error);
       }
     };
 
@@ -77,7 +77,7 @@ function GalleryUpdateForm(galleryProp) {
       await axiosReq.put(`/galleries/${id}/`, formData);
       history.push("/gallery/");
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       if (error.response?.status !== 401) {
         setErrors(error.response?.data);
       }
