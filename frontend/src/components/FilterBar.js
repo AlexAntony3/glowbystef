@@ -23,13 +23,13 @@ const FilterBar = ({ setSearchTerm, onSearch, onRadioChange }) => {
   const handleSearch = (e) => {
     e.preventDefault();
     setSearchTerm(searchInput.trim());
-    onSearch();
+    // onSearch();
   };
 
   const handleRadioChange = (value) => {
     setRadioValue(value);
     onRadioChange(value);
-  }
+  };
 
   return (
     <Row className={styles.FilterBar}>

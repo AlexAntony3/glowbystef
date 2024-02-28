@@ -35,18 +35,18 @@ function GalleryUpdateForm(galleryProp) {
         const { data } = await axiosRes.get(`/galleries/${id}`);
         const { title, description, image, is_owner } = data;
 
-        console.log(is_owner)
+        console.log(is_owner);
 
         // is_owner ?  //TODO
-          setGalleryInfo({ title, description, image })
-          // : history.push("/");
+        setGalleryInfo({ title, description, image });
+        // : history.push("/");
       } catch (error) {
         console.log(error);
       }
     };
 
     getImageDetails();
-  }, [history, id])
+  }, [history, id]);
 
   const handleChange = (e) => {
     setGalleryInfo({
@@ -71,7 +71,7 @@ function GalleryUpdateForm(galleryProp) {
 
     formData.append("title", title);
     formData.append("description", description);
-    
+
     if (imageInput?.current?.files[0]) {
       formData.append("image", imageInput.current.files[0]);
     }

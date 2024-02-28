@@ -3,11 +3,12 @@ import { Button, Card, OverlayTrigger, Tooltip } from "react-bootstrap";
 import styles from "../styles/Gallery.module.css";
 import { useCurrentUser } from "../contexts/CurrentUserContext";
 import { axiosRes } from "../api/axiosDefaults";
-import { Link, useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import btnStyles from "../styles/Button.module.css";
 
 const GalleryCard = ({
   id,
+  is_owner,
   title,
   description,
   image,
@@ -19,7 +20,6 @@ const GalleryCard = ({
 
   const [likesCount, setLikesCount] = useState(likes_count);
   const [likeId, setLikeId] = useState(like_id);
-  const history = useHistory();
 
   const handleLike = async () => {
     try {
@@ -74,7 +74,7 @@ const GalleryCard = ({
           </OverlayTrigger>
         )}
         {likesCount}
-        {currentUser && (
+        {currentUser && is_owner && (
           <Link to={`/gallery/${id}/update/`}>
             <Button
               variant="outline-primary"
@@ -82,7 +82,7 @@ const GalleryCard = ({
             ></Button>
           </Link>
         )}
-        {currentUser && (
+        {currentUser && is_owner && (
           <i onClick={idForDelete} className="fa-solid fa-trash"></i>
         )}
       </Card.Footer>

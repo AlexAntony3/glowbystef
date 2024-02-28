@@ -17,7 +17,6 @@ const Gallery = ({ message, filter = "" }) => {
   const currentUser = useCurrentUser();
   const [galleryImages, setGalleryImages] = useState({ results: [] });
   const [filterable, setFilterable] = useState(false);
-  const [results, setResults] = useState([]);
   const [searchValue, setSearchValue] = useState("");
   const [contentLoaded, setContentLoaded] = useState(false);
   const [radioValue, setRadioValue] = useState("1");
@@ -39,10 +38,10 @@ const Gallery = ({ message, filter = "" }) => {
     }
   };
 
-  const handleSearch = () => {
-    // setGalleryImages(results);
-    console.log(searchValue);
-  };
+  // const handleSearch = () => {
+  //   // setGalleryImages(results);
+  //   console.log(searchValue);
+  // };
 
   useEffect(() => {
     const getGalleryImages = async () => {
@@ -94,7 +93,7 @@ const Gallery = ({ message, filter = "" }) => {
             className={styles.FilterBar}
             onRadioChange={setRadioValue}
             setSearchTerm={setSearchValue}
-            onSearch={handleSearch}
+            // onSearch={handleSearch}
           />
         )}
         {contentLoaded ? (
@@ -127,7 +126,6 @@ const Gallery = ({ message, filter = "" }) => {
           </Container>
         )}
       </Container>
-      console.log(galleryImages)
     </>
   );
 };
