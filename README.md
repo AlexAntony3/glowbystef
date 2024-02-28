@@ -143,85 +143,61 @@ For breakpoints within this website, there were some minor aspects using media q
 
 ## Database Structure
 
-### Profile model
-
-| Field Name | Type          | Default Value                  |
+| Field Name | Type | Default Value |
 | ---------- | ------------- | ------------------------------ |
-| owner      | OnetoOneField | User, on_delete=models.CASCADE |
-
+| owner | OnetoOneField | User, on_delete=models.CASCADE |
 | created_at | DateTimeField | auto_now_add=True |
-
 | updated_at | DateTimeField | auto_now=True |
-
 | name | CharField | max_length=255 |
-
 | bio | TextField | blank=True |
-
 | contact_number | CharField | max_length=20, null=True |
-
 | profile_picture | ImageField | upload_to='images/', default='../blank_profile_picture_n727ay' |
 
 ### Service Model
 
 | Field Name | Type | Default Value |
-
 |-------------|--------------|-----------------------------------------------------------------|
-
 | name | CharField | max_length=255 |
-
 | description | TextField | () |
-
 | price | DecimalField | max_digits=10, decimal_places=2 |
-
 | image | ImageField | upload_to="images/", default='../blank_services_picture_lc3p4z' |
 
 ### Review Model
 
 | Field Name | Type | Default Value |
-
 |---------------|---------------|--------------------------------------------------------------------------------------------------------------|
-
 | owner | ForeignKey | User, on_delete=models.CASCADE |
-
 | service | ForeignKey | Service, on_delete=models.CASCADE, related_name='reviews' |
-
 | review | TextField | () |
-
 | rating | IntegerField | default=1, validators=[ MaxValueValidator(5), MinValueValidator(1) ] |
-
 | created_at | DateTimeField | auto_now_add=True |
-
 | rating_filter | IntegerField | choices=RATING_FILTER_CHOICES, null=True, blank=True, |
 
 ### Gallery Model
 
 | Field Name | Type | Default Value |
-
 |-------------|---------------|-------------------------------------------------------------------|
-
 | owner | ForeignKey | User, on_delete=models.CASCADE |
-
 | created_at | DateTimeField | auto_now_add=True |
-
 | title | CharField | max_length=255 |
-
 | description | CharField | max_length=500 |
-
 | image | ImageField | upload_to='images/', default='../default_post_f8mypf', blank=True |
 
 ### Like Model
 
 | Field Name | Type | Default Value |
-
 |------------|---------------|---------------------------------------------------------|
-
 | owner | ForeignKey | User, on_delete=models.CASCADE |
-
 | gallery | ForeignKey | Gallery, on_delete=models.CASCADE, related_name='likes' |
-
 | created_at | DateTimeField | auto_now_add=True
 
 ## Existing Features
+
+### Reusable Components
+
+The first reusable component in my application is my GalleryCard component. It contains various props such as **id**, **is_owner**, **title**, **description**, **image**, **likes_count**, **like_id** etc. The component contains features that allow a user to have a great deal of interactivity. It enables a user to see the content, it contains the image, the title and description, but also allows a logged in user to upload an image, edit their image, like an image, unlike an image and delete their image if they chose to do so. The component also uses multiple React bootstrap variables such as Card, Button and Overlay Trigger which means that it is responsive to all different environments. 
+
+The second reusable component in my application is my ServiceCard component, this component works along the same lines as the GalleryCard component, however, with no user interactivity, the aim of this card is to get information about services from the back End API and map through the services to show **service type**, **a short description** and **cost**. All this combined fulfils it's requirements of being reusable and reesponsive to any input. 
 
 ### Contact me section and footer
 
@@ -245,11 +221,11 @@ When logged in the user is able to like a post which appears as a block colour w
 
 There is also a filter feature where the user can search for different posts and see results. Furthermore a logged in user can see the pictures that they have specifically liked.
 
-This is a section that uses components multiple times in a loop to ensure that anything added by the admin, is created and added automatically. This is then formatted in the same templates as the other gallery card for consistency. The layout of the images are placed in a way that is not uniform as a strict images page makes the page seem more restrictive.
+This is a section that uses components multiple times in a loop to ensure that anything added by the admin and user, is created and added automatically. This is then formatted in the same templates as the other gallery card for consistency. The layout of the images are placed in a way that is not uniform as a strict images page makes the page seem more restrictive.
 
 ### Sign In page
 
-The Sign in page features an attractive entry to allow users to log into the page, it features a form where a user can log in, and on the right of it, a picture that’s light and reflects the purpose of the website, additional through research I saw that most websites did not have a sign up navigation link, rather a sign in with a link that points to a sign up page if a user wants to make an account. This is the same principle that I followed and the clicking the sign up button leads to another page whereby the user can create a username, password and confirm the password. \
+The Sign in page features an attractive entry to allow users to log into the page, it features a form where a user can log in, and on the right of it, a picture that’s light and reflects the purpose of the website, additional through research I saw that most websites did not have a sign up navigation link, rather a sign in with a link that points to a sign up page if a user wants to make an account. This is the same principle that I followed and the clicking the sign up button leads to another page whereby the user can create a username, password and confirm the password. 
 
 ### Profile Page
 
@@ -268,6 +244,7 @@ In the future, the features I’d like to include are:
 Booking appointments
 Paying for said booked appointments in advance
 The ability for users to review each service which would then be reflected within a star rating.
+Other users can then use that rating and review any feedback left behind by other clients.
 
 These features are important aspects to make a more refined and finished product. However, due to time constraints I was no able to fulfil all the actions of this project that I initially intended. I intend to continually improve this website to make it functional and appealing for Stef’s clientele.
 
@@ -275,36 +252,34 @@ These features are important aspects to make a more refined and finished product
 
 ### Languages
 
-- [HTML5](https://www.w3schools.com/html/)
-- [CSS3](https://www.w3schools.com/css/)
-- [Python](https://www.python.org/)
-- [React](https://react.dev/)
+- [HTML5](https://www.w3schools.com/html/) - integrated mostly into my react code, but a great language for web development.
+- [CSS3](https://www.w3schools.com/css/) - if you're wondering why my page looks so good, just have a look at my CSS
+- [Python](https://www.python.org/) - a logical coding language, with strong capabilities in databases and back end work.
+- [React](https://react.dev/) - A logical coding language. Ideal for frontend development. 
 
 ### Libraries and Frameworks
 
-- [Django](https://www.djangoproject.com/)
-- [Cloudinary](https://cloudinary.com/)
-- [Gunicorn](https://gunicorn.org/)
-- [Psycopg2](https://pypi.org/project/psycopg2/)
-- [Google Fonts](https://fonts.google.com/)
-- [React-Bootstrap](https://react-bootstrap-v4.netlify.app/)
+- [Django React Framework](https://www.djangoproject.com/) - A powerful toolkit for building web APIs. Using DRF extends the capabilities of Django.
+- [Cloudinary](https://cloudinary.com/) - A cloud based platform that allows upload, store and management of a wide range of media. 
+- [Gunicorn](https://gunicorn.org/) - A widely used WSGI, perfect for working with frameworks like Django
+- [Psycopg2](https://pypi.org/project/psycopg2/) - A PostgreSQL adapter which allows for python based applications to communicate with PostgreSQL databases.
+- [Google Fonts](https://fonts.google.com/) - A great tool to be able to see samples of what text you'd want on your website.
+- [React-Bootstrap](https://react-bootstrap-v4.netlify.app/) - Bootstrap but for react, an easy and efficient way to create a clean responsive website. 
 
 ### Tools
 
-- [GitPod](https://www.gitpod.io/)
-- [GitHub](https://github.com/)
-- [Git](https://git-scm.com/)
-- [Heroku](<(https://www.heroku.com)>)
-- [ElephantSQL](https://www.elephantsql.com/)
-- [SQLite3](https://www.sqlite.org/index.html)
-- [Devicon](https://devicon.dev/)
-- [FontAwesome](https://fontawesome.com/)
-- [AmIResponsive](https://ui.dev/amiresponsive)
-- [Balsamiq](https://balsamiq.com/wireframes/?gad=1&gclid=CjwKCAjwr_CnBhA0EiwAci5sikJlbA3yk1dYGRdNiY0Krv7_98bWbqabFd_DxfjzG1-J7kWnl2-byhoC2cIQAvD_BwE)
-- [W3C Validator](https://validator.w3.org/)
-- [W3C CSS Validator](https://jigsaw.w3.org/css-validator/)
-- [CI pep8 linter](https://pep8ci.herokuapp.com/)
-- [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview/)
+- [GitPod](https://www.gitpod.io/) - Cloudbased IDE, great for collaborative software development.
+- [GitHub](https://github.com/) - a website that aids software development and version control.
+- [Git](https://git-scm.com/) - version control system that tracks changes in source code in the development phase.
+- [Heroku]((https://www.heroku.com)) - cloud based platform for deploying applications.
+- [ElephantSQL](https://www.elephantsql.com/) - cloud based PostgreSQL database service
+- [SQLite3](https://www.sqlite.org/index.html) - a serverless open-source database, perfect for local development.
+- [FontAwesome](https://fontawesome.com/) - one of the best things ever, every single icon you need is in here.
+- [AmIResponsive](https://ui.dev/amiresponsive) - a great tool for your projects, shows you what you application looks like on different screen sizes.
+- [Balsamiq](https://balsamiq.com/wireframes/?gad=1&gclid=CjwKCAjwr_CnBhA0EiwAci5sikJlbA3yk1dYGRdNiY0Krv7_98bWbqabFd_DxfjzG1-J7kWnl2-byhoC2cIQAvD_BwE) - A programme for wireframing and prototyping, just the thing you need to plan out your projects.
+- [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) - validates your CSS
+- [CI pep8 linter](https://pep8ci.herokuapp.com/) - validates your JS
+- [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview/) - reviews accessibility. 
 
 ## Testing
 
@@ -326,8 +301,8 @@ These features are important aspects to make a more refined and finished product
 | On small screens, click outside of the menu dropdown | Burger menu retracts                                                      | Pass         |
 | On normal screens move mouse over NavBar links       | Hover effect takes place                                                  | Pass         |
 | Content: Click on home page                          | Cover photo, portrait and Bio present                                     | Pass         |
-| Content: Click on services page                      | Cards present with service title, description, price and review button    | Pass         |
-| Content: Click on Gallery page                       | Cards present with image title, description, hover effect and like button | Pass         |
+| Content: Click on services page                      | Cards present with service  Image, title, description and price   | Pass         |
+| Content: Click on Gallery page                       | Cards present with image,  title, description, hover effect and like button | Pass         |
 
 #### Logged out Users
 
@@ -342,15 +317,19 @@ These features are important aspects to make a more refined and finished product
 
 #### Logged in Users
 
-| Test                                     | Outcome                                                                   | Pass or Fail |
+| Test | Outcome | Pass or Fail |
 | ---------------------------------------- | ------------------------------------------------------------------------- | ------------ |
-| click on Liked button                    | All gallery items that are liked by the user appears                      | Fail         |
-| click on Profile dropdown button         | Account and sign out buttons to be present                                | Pass         |
-| click on Account button                  | Redirected to the account information page for the user                   | Fail         |
-| Once logged in, click on sign out button | Redirected to the home page and Navbar offers sign in and sign up options | Pass         |
-| Once logged in, click like button        | Image liked                                                               | Pass         |
-| Once logged in, click like button        | Like Count + 1                                                            | Pass         |
-| Once logged in, click on sign out button | Redirected to the home page and Navbar offers sign in and sign up options | Pass         |
+| On the gallery page, click on the filter icon | All filterable elements and upload button present | Pass |
+| On the gallery page, click on the filter icon again | Filterable elements disappear | Pass |
+| On the gallery page, with the filter on, search a present image and click search | relevant images appear | Pass |
+| search a non-present image and click search | no image found image appear | Pass |
+| search any value and press enter | required search result is progressed | Pass |
+| click on the liked button  | only images the user has liked appears | Pass |
+| click on the all button  | all images appear | Pass |
+| Once logged in, click on sign out button | Redirected to the home page and Navbar offers sign in and sign up options | Pass |
+| Once logged in, click like button | Image liked | Pass |
+| Once logged in, click like button | Like Count + 1 | Pass |
+| Once logged in, click on sign out button | Redirected to the home page and Navbar offers sign in and sign up options | Pass |
 
 Due to time constraints I was not able to complete a full comprehensive set of tests.
 
@@ -366,6 +345,8 @@ Like/ Unlike not functioning. This error was another time consumer as every time
 ## Unfixed Bug
 
 On random occasions when liking a post the page is not responsive and then goes blank. However once hard refreshed, the action works as intended. I’m not sure exactly why this happens or how to recreate it but it would be at random intervals.
+
+Also at random occurrences, when a user searches for a gallery image, the not found icon appears for a split second which immediately moves onto the correct search result. Again this could not be recreated and no errors occurred therefore a fix could not be implemented. 
 
 ## User Story Reflection
 
