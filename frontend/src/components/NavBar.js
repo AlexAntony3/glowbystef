@@ -1,14 +1,13 @@
 import styles from "../styles/NavBar.module.css";
 import React from "react";
 import axios from "axios";
-import { Container, Navbar, Nav, NavDropdown } from "react-bootstrap";
+import { Container, Navbar, Nav } from "react-bootstrap";
 import gbslogo from "../assets/gbslogo.png";
 import { NavLink } from "react-router-dom";
 import {
   useCurrentUser,
   useSetCurrentUser,
 } from "../contexts/CurrentUserContext";
-import Avatar from "./Avatar";
 import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
 
 const NavBar = () => {

@@ -33,13 +33,10 @@ function GalleryUpdateForm(galleryProp) {
     const getImageDetails = async () => {
       try {
         const { data } = await axiosRes.get(`/galleries/${id}`);
-        const { title, description, image, is_owner } = data;
+        const { title, description, image, } = data;
 
-        // console.log(is_owner);
-
-        // is_owner ?  //TODO
         setGalleryInfo({ title, description, image });
-        // : history.push("/");
+
       } catch (error) {
         console.log(error);
       }

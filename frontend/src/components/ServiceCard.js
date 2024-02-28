@@ -1,6 +1,5 @@
 import React from "react";
-import { Card, Button } from "react-bootstrap"
-import btnStyles from "../styles/Button.module.css";
+import { Card } from "react-bootstrap"
 ;
 
 const ServiceCard = (props) => {

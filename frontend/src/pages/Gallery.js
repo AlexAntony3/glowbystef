@@ -68,7 +68,7 @@ const Gallery = ({ message, filter = "" }) => {
     };
 
     getGalleryImages();
-  }, [searchValue, filter, radioValue]);
+  }, [searchValue, filter, radioValue, profile_id]);
 
   // const handleFilterChange = (value) => {
   //   setCurrentFilter(value);

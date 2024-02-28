@@ -7,7 +7,6 @@ import {
   Card,
   ListGroup,
   Jumbotron,
-  Button,
 } from "react-bootstrap";
 import appStyles from "../App.module.css";
 import styles from "../styles/Home.module.css";
