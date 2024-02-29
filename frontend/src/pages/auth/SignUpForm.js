@@ -17,6 +17,7 @@ import {
 
 import axios from "axios";
 import { useRedirect } from "../../hooks/useRedirect";
+import { toast } from "react-toastify";
 
 const SignUpForm = () => {
   useRedirect('loggedIn')
@@ -43,6 +44,7 @@ const SignUpForm = () => {
     try {
       await axios.post("/dj-rest-auth/registration/", signUpInfo);
       history.push("/signin");
+      toast.success('You created an account!')
     } catch (err) {
       setErrors(err.response?.data);
     }

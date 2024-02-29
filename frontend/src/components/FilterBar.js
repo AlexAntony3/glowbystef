@@ -68,12 +68,12 @@ const FilterBar = ({ setSearchTerm, onRadioChange }) => {
           ))}
         </ButtonGroup>
       </Col>
-      <Col>
+      <Col sm={4}>
         <Link to="/gallery/create">
           <Button
             className={`${btnStyles.Button} ${btnStyles.Bright} ${btnStyles.Wide}`}
           >
-            [+] Add your own photo
+            [+] upload
           </Button>
         </Link>
       </Col>

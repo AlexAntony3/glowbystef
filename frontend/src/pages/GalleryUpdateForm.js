@@ -17,6 +17,7 @@ import Upload from "../assets/upload.png";
 import appStyles from "../App.module.css";
 import btnStyles from "../styles/Button.module.css";
 import { axiosReq, axiosRes } from "../api/axiosDefaults";
+import { toast } from "react-toastify";
 
 function GalleryUpdateForm() {
   const { id } = useParams();
@@ -77,6 +78,7 @@ function GalleryUpdateForm() {
     try {
       await axiosReq.put(`/galleries/${id}/`, formData);
       history.push("/gallery/");
+      toast.success('Successfully Updated!')
     } catch (error) {
       // console.log(error);
       if (error.response?.status !== 401) {

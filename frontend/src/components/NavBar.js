@@ -9,6 +9,7 @@ import {
   useSetCurrentUser,
 } from "../contexts/CurrentUserContext";
 import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
+import { toast } from "react-toastify";
 
 const NavBar = () => {
   const currentUser = useCurrentUser();
@@ -20,6 +21,7 @@ const NavBar = () => {
     try {
       await axios.post("dj-rest-auth/logout/");
       setCurrentUser(null);
+      toast.success('Come back soon!')
     } catch (error) {
       // console.log(error);
     }

@@ -15,6 +15,7 @@ import { fetchMoreData } from "../utils/utils";
 import appStyles from "../App.module.css";
 import styles from "../styles/Gallery.module.css";
 import { axiosRes } from "../api/axiosDefaults";
+import { toast } from "react-toastify";
 
 const Gallery = ({ filter = "" }) => {
   const currentUser = useCurrentUser();
@@ -36,6 +37,7 @@ const Gallery = ({ filter = "" }) => {
         ...prev,
         results: prev.results.filter((image) => image.id !== id),
       }));
+      toast.success('Successfully Deleted')
     } catch (err) {
       // console.log(err);
     }

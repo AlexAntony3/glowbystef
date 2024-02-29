@@ -14,6 +14,7 @@ import btnStyles from "../styles/Button.module.css";
 import Asset from "../components/Asset";
 
 import { axiosReq } from "../api/axiosDefaults";
+import { toast } from "react-toastify";
 
 function GalleryCreateForm() {
   const [errors, setErrors] = useState({});
@@ -55,9 +56,9 @@ function GalleryCreateForm() {
     formData.append("image", imageInput.current.files[0]);
 
     try {
-      const { data } = await axiosReq.post("/galleries/", formData);
+      await axiosReq.post("/galleries/", formData);
+      toast.success('Successfully Created')
       history.push("/gallery/");
-      console.log(data.message);
     } catch (error) {
       // console.log(error);
       if (error.response?.status !== 401) {
