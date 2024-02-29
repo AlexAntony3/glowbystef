@@ -51,7 +51,7 @@ const FilterBar = ({ setSearchTerm, onRadioChange }) => {
           </Button>
         </Form>
       </Col>
-      <Col>
+      <Col sm={4}>
         <ButtonGroup toggle>
           {radioOptions.map((option) => (
             <ToggleButton
