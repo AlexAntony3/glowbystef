@@ -27,7 +27,9 @@ The Kanban system was something that allowed me to stay on target. The Kanban sy
 
 This system allowed me to write in all my user stories and then make sure that all the requirements for the user stories to be completed could be remembered and amended as required. As I was learning throughout this project, additional user stories and other items were added onto the Kanban system.
 
-The MoSCoW method of prioritisation was used in this projection in conjunction with the Kanban system. All issues and items added to the board contained a label which detailed if the item was a **must have** **should have** **could have**. More priority and time were given to the must have and vice versa for the could have items.
+The MoSCoW method of prioritisation was used in this projection in conjunction with the Kanban system. All issues and items added to the board contained a label which detailed if the item was a **must have** **should have** **could have**. More priority and time were given to the must have and vice versa for the could have items. 
+
+For the final part of my project, I used a milestone to plan out the phases required for implementing CRUD funtionality onto the application. 
 
 ![KanBan](docs/kanban.png)
 
@@ -654,6 +656,8 @@ On random occasions when liking a post the page is not responsive and then goes 
 Also at random occurrences, when a user searches for a gallery image, the not found icon appears for a split second which immediately moves onto the correct search result. Again this could not be recreated and no errors occurred therefore a fix could not be implemented.
 
 The images uploaded on the website were too large and therefore has caused some issues with loading speed, this is a hinderance for usability however, due to time constrains I was not able to deal with the situation sufficiently. 
+
+On some occations of testing the application on lighthouse, the performance was observed to be low on mobile mode, (below 50) I investigated this however, even after lowering the image sizes, the low result still occurred, however on other occasions of testing, the results were 75+. As a clear root cause could not be identified. Due to this and time constraints I was not able to fix this bug.
 
 ## User Story Reflection
 
