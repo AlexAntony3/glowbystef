@@ -147,7 +147,7 @@ Another main component that was researched was CRUD functionality for users. It 
 
 As stated previously, the main element of design is being minimalistic. However whilst being minimalistic, contrasting colours are required for the highest level of engagement and to keep the interest alive. The colours used are also symbolic of colours often observed in make up palettes. The colour scheme and palette were created using [Coolors]([[https://coolors.co/?home]. "Coolors").
 
-(Add picture of coolors colour)
+![Colour scheme](docs/colour_scheme.png)
 
 | Colour (HEX) | Use |
 | ------------ | ----------------------------------------------------------------------------------------------------------------------------------- |
@@ -170,7 +170,7 @@ Multiple icons are used throughout the webpage, this is to increase the user exp
 The aim of the application is to display elegance, vibrance and professionalism. All of these requirements were considered when picking the font. The fonts that have been decided for the project are:
 
 - [Dancing Script]([[https://fonts.google.com/specimen/Dancing+Script] "Dancing Script") - A font used very minimally throughout the project but used for some text that require an extra flare.
-- 
+
 - [Roboto]([[https://fonts.google.com/specimen/Roboto] "Roboto") - The main eye catching font used for titles and descriptions.
 
 Both of theses fonts were found using [Google Fonts]([[https://fonts.google.com/] "google fonts")
@@ -209,6 +209,8 @@ For breakpoints within this website, there were some minor aspects using media q
 ![logged in liked](docs/loggedin_liked.png)
 
 ## Database Structure
+
+![Database Schema](docs/databaseschema.png)
 
 ### Profile Model
 
@@ -417,45 +419,49 @@ These features are important aspects to make a more refined and finished product
 
 ### Libraries and Frameworks
 
-- [Django Rest Framework]([[https://www.djangoproject.com/] "Drango Rest Framework") - A powerful toolkit for building web APIs. Using DRF extends the capabilities of Django.
+- [Django Rest Framework]([https://www.djangoproject.com/] "Drango Rest Framework") - A powerful toolkit for building web APIs. Using DRF extends the capabilities of Django.
 
-- [Cloudinary]([[https://cloudinary.com/] "Cloudinary") - A cloud based platform that allows upload, store and management of a wide range of media.
+- [Cloudinary]([https://cloudinary.com/] "Cloudinary") - A cloud based platform that allows upload, store and management of a wide range of media.
 
-- [Gunicorn]([[https://gunicorn.org/] "Gunicorn") - A widely used WSGI, perfect for working with frameworks like Django
+- [Gunicorn]([https://gunicorn.org/] "Gunicorn") - A widely used WSGI, perfect for working with frameworks like Django
 
-- [Psycopg2]([[https://pypi.org/project/psycopg2/] "Psycopg2") - A PostgreSQL adapter which allows for python based applications to communicate with PostgreSQL databases.
+- [Psycopg2]([https://pypi.org/project/psycopg2/] "Psycopg2") - A PostgreSQL adapter which allows for python based applications to communicate with PostgreSQL databases.
 
-- [Google Fonts]([[https://fonts.google.com/] "Google Fonts") - A great tool to be able to see samples of what text you'd want on your website.
+- [Google Fonts]([https://fonts.google.com/] "Google Fonts") - A great tool to be able to see samples of what text you'd want on your website.
 
-- [React-Bootstrap]([[https://react-bootstrap-v4.netlify.app/] "React-Bootstrap") - Bootstrap but for react, I used it for an an easy and efficient way to create a clean responsive website.
+- [React-Bootstrap]([https://react-bootstrap-v4.netlify.app/] "React-Bootstrap") - Bootstrap but for react, I used it for an an easy and efficient way to create a clean responsive website.
 
 - [React Toastify]([https://www.npmjs.com/package/react-toastify] "React Toastify") - An amazing library that makes adding a toast onto any element much simpler. 
 
 ### Tools
 
-- [GitPod]([[https://www.gitpod.io/] "GitPod") - Cloudbased IDE, great for collaborative software development.
+- [GitPod]([https://www.gitpod.io/] "GitPod") - Cloudbased IDE, great for collaborative software development.
 
-- [GitHub]([[https://github.com/] "GitHub") - a website that aids software development and version control.
+- [GitHub]([https://github.com/] "GitHub") - a website that aids software development and version control.
 
-- [Git]([[https://git-scm.com/] "Git") - version control system that tracks changes in source code in the development phase.
+- [Git]([https://git-scm.com/] "Git") - version control system that tracks changes in source code in the development phase.
 
-- [Heroku]([[https://www.heroku.com] "Heroku") - cloud based platform for deploying applications.
+- [Heroku]([https://www.heroku.com] "Heroku") - cloud based platform for deploying applications.
 
-- [ElephantSQL]([[https://www.elephantsql.com/] "ElephantSQL") - cloud based PostgreSQL database service
+- [ElephantSQL]([https://www.elephantsql.com/] "ElephantSQL") - cloud based PostgreSQL database service
 
-- [SQLite3]([[https://www.sqlite.org/index.html] "SQLite3") - a serverless open-source database, perfect for local development.
+- [SQLite3]([https://www.sqlite.org/index.html] "SQLite3") - a serverless open-source database, perfect for local development.
 
-- [FontAwesome]([[https://fontawesome.com/] "FontAwesome") - one of the best things ever, every single icon you need is in here.
+- [FontAwesome]([https://fontawesome.com/] "FontAwesome") - one of the best things ever, every single icon you need is in here.
 
-- [AmIResponsive]([[https://ui.dev/amiresponsive] "AmIResponsive") - a great tool for your projects, shows you what you application looks like on different screen sizes.
+- [AmIResponsive]([https://ui.dev/amiresponsive] "AmIResponsive") - a great tool for your projects, shows you what you application looks like on different screen sizes.
 
-- [Balsamiq]([[https://balsamiq.com/wireframes/?gad=1&gclid=CjwKCAjwr_CnBhA0EiwAci5sikJlbA3yk1dYGRdNiY0Krv7_98bWbqabFd_DxfjzG1-J7kWnl2-byhoC2cIQAvD_BwE] "Balsamiq") - A programme for wireframing and prototyping, just the thing you need to plan out your projects.
+- [Balsamiq]([https://balsamiq.com/wireframes/?gad=1&gclid=CjwKCAjwr_CnBhA0EiwAci5sikJlbA3yk1dYGRdNiY0Krv7_98bWbqabFd_DxfjzG1-J7kWnl2-byhoC2cIQAvD_BwE] "Balsamiq") - A programme for wireframing and prototyping, just the thing you need to plan out your projects.
 
-- [W3C CSS Validator]([[https://jigsaw.w3.org/css-validator/] "W3C CSS Validator") - validates your CSS
+- [W3C CSS Validator]([https://jigsaw.w3.org/css-validator/] "W3C CSS Validator") - validates your CSS
 
-- [CI pep8 linter]([[https://pep8ci.herokuapp.com/] "CI pep8 linter") - validates your JS
+- [CI pep8 linter]([https://pep8ci.herokuapp.com/] "CI pep8 linter") - validates your python code
 
-- [Lighthouse]([[https://developer.chrome.com/docs/lighthouse/overview/] "Lighthouse") - reviews accessibility.
+- [JShint linter]([https://jshint.com/] "JShint linter") - validates your JS/React code.
+
+- [Lighthouse]([https://developer.chrome.com/docs/lighthouse/overview/] "Lighthouse") - reviews accessibility and shows best practises to make application viable on all platforms.
+
+- [Lucid Chart]([https://www.lucidchart.com/pages/] "Lucid Chart") - A tool to be able to create database diagrams and relationships.
 
 ## Testing 
 
@@ -585,7 +591,7 @@ All React code was passed through linter and was found to relay with no errors.
 
 #### FiterBar.module.css
 
-![FilterBar](docs/filterbar.png)
+![FilterBar](docs/filterbarcss.png)
 
 #### Footer.module.css
 
