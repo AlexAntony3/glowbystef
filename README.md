@@ -595,7 +595,7 @@ The performance rating however is low, and at random points of testing, even low
 
 ![JS Validation](docs/jsvalidation.png)
 
-All React code was passed through linter and was found to relay with no errors.
+All JavaScript validations have been successfully passed; however, as I was using ES6, the notifications pertaining to features exclusive to ES6 can be disregarded, as they have no impact on the overall outcome.
 
 ### CSS validation
 
