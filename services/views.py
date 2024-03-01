@@ -1,8 +1,7 @@
 from django.db.models import Count
-from rest_framework import generics, filters
-from rest_framework.permissions import IsAuthenticated
-from gbs_api.permissions import IsOwnerOrReadOnly
+from rest_framework import permissions, generics, filters
 from .models import Service, Review
+from gbs_api.permissions import IsOwnerOrReadOnly
 from .serializers import (
     ServiceSerializer,
     ReviewSerializer,

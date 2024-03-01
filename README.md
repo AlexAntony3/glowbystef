@@ -524,21 +524,85 @@ These features are important aspects to make a more refined and finished product
 
 As the screenshot below shows, the lighthouse testing is successful and has a high rating for accessibility. This means that a user who is impaired in any nature is able to access the application and know what is happening.
 
-### Linter testing
+### JShint testing
 
-(add screenshot)
+![JS Validation](docs/jsvalidation.png)
 
 All React code was passed through linter and was found to relay with no errors.
 
 ### CSS validation
 
-(add screenshot)
+#### App.module.css
+
+![App](docs/appcss.png)
+
+#### Asset.module.css
+
+![Asset](docs/assetcss.png)
+
+#### Avatar.module.css
+
+![Avatar](docs/avatarcss.png)
+
+#### Button.module.css
+
+![Button](docs/buttoncss.png)
+
+#### FiterBar.module.css
+
+![FilterBar](docs/filterbar.png)
+
+#### Footer.module.css
+
+![Footer](docs/footercss.png)
+
+#### Gallery.module.css
+
+![Gallery](docs/gallerycss.png)
+
+#### Home.module.css
+
+![Home](docs/homecss.png)
+
+#### NavBar.module.css
+
+![NavBar](docs/navbarcss.png)
+
+#### NotFound.module.css
+
+![NotFound](docs/notfoundcss.png)
+
+#### SearchBar.module.css
+
+![SearchBar](docs/searchbarcss.png)
+
+#### Services.module.css
+
+![Services](docs/servicescss.png)
+
+#### SignInUpForm.module.css
+
+![SignInUp](docs/logincss.png)
 
 All CSS code was passed through validation and no errors were found.
 
-### Python validation
+### Python Pep8 validation
 
-(add screenshot)
+#### API
+
+![Api validation](docs/apipep.png)
+
+#### Galleries
+
+![Galleries validation](docs/galleriespep.png)
+
+#### Profile
+
+![Profile validation](docs/profilepep.png)
+
+#### Services
+
+![Services Validation](docs/servicespep.png)
 
 all python code was passed through validation and no errors were found.
 

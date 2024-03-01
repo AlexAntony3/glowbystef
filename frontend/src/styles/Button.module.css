@@ -50,8 +50,7 @@
 .NoBorderBtn {
   border: none;
   outline: none !important;
-  outline-offset: none !important;
-  background-color: none !important;
+  background-color: transparent !important;
 }
 
 .NoBorderBtn:focus {

@@ -19,10 +19,6 @@
   border-radius: 3px;
 }
 
-.GalleryContentDisplay > * :hover {
-    background-image: none;
-}
-
 .LikeButton {
   position: relative;
   color:#24517C !important;
@@ -49,7 +45,7 @@
 
 
 .Filter {
-  background-color: none;
+  background-color: transparent;
   padding-left: 20px;
 }
 
