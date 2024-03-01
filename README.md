@@ -161,19 +161,19 @@ As stated previously, the main element of design is being minimalistic. However 
 
 ### Icons
 
-Multiple icons are used throughout the webpage, this is to increase the user experience and make the purpose of buttons / information sources easier to understand. [Font Awesome]([[https://fontawesome.com/ "Font Awesome") was used as the source of the icons.
+Multiple icons are used throughout the webpage, this is to increase the user experience and make the purpose of buttons / information sources easier to understand. [Font Awesome](https://fontawesome.com/ "Font Awesome") was used as the source of the icons.
 
-[Favicon]([[https://favicon.io] "Favicon") was also another source of icon used however this supplied an identifier for the website when a user visits. The icon is recognisable and is indicative of the type of website.
+[Favicon](https://favicon.io "Favicon") was also another source of icon used however this supplied an identifier for the website when a user visits. The icon is recognisable and is indicative of the type of website.
 
 ### Font
 
 The aim of the application is to display elegance, vibrance and professionalism. All of these requirements were considered when picking the font. The fonts that have been decided for the project are:
 
-- [Dancing Script]([[https://fonts.google.com/specimen/Dancing+Script] "Dancing Script") - A font used very minimally throughout the project but used for some text that require an extra flare.
+- [Dancing Script](https://fonts.google.com/specimen/Dancing+Script "Dancing Script") - A font used very minimally throughout the project but used for some text that require an extra flare.
 
-- [Roboto]([[https://fonts.google.com/specimen/Roboto] "Roboto") - The main eye catching font used for titles and descriptions.
+- [Roboto](https://fonts.google.com/specimen/Roboto "Roboto") - The main eye catching font used for titles and descriptions.
 
-Both of theses fonts were found using [Google Fonts]([[https://fonts.google.com/] "google fonts")
+Both of theses fonts were found using [Google Fonts](https://fonts.google.com/ "google fonts")
 
 ### Breakpoints
 
@@ -409,59 +409,59 @@ These features are important aspects to make a more refined and finished product
 
 ### Languages
 
-- [HTML5]([[https://www.w3schools.com/html/] "HTML5") - integrated mostly into my react code, but a great language for web development.
+- [HTML5](https://www.w3schools.com/html/ "HTML5") - integrated mostly into my react code, but a great language for web development.
 
-- [CSS3]([[https://www.w3schools.com/css/] "CSS3") - if you're wondering why my page looks so good, just have a look at my CSS
+- [CSS3](https://www.w3schools.com/css/ "CSS3") - if you're wondering why my page looks so good, just have a look at my CSS
 
-- [Python]([[https://www.python.org/] "Python") - a logical coding language, with strong capabilities in databases and back end work.
+- [Python](https://www.python.org/ "Python") - a logical coding language, with strong capabilities in databases and back end work.
 
-- [React]([[https://react.dev/] "React") - A logical coding language. Ideal for frontend development.
+- [React](https://react.dev/ "React") - A logical coding language. Ideal for frontend development.
 
 ### Libraries and Frameworks
 
-- [Django Rest Framework]([https://www.djangoproject.com/] "Drango Rest Framework") - A powerful toolkit for building web APIs. Using DRF extends the capabilities of Django.
+- [Django Rest Framework](https://www.djangoproject.com/ "Drango Rest Framework") - A powerful toolkit for building web APIs. Using DRF extends the capabilities of Django.
 
-- [Cloudinary]([https://cloudinary.com/] "Cloudinary") - A cloud based platform that allows upload, store and management of a wide range of media.
+- [Cloudinary](https://cloudinary.com/ "Cloudinary") - A cloud based platform that allows upload, store and management of a wide range of media.
 
-- [Gunicorn]([https://gunicorn.org/] "Gunicorn") - A widely used WSGI, perfect for working with frameworks like Django
+- [Gunicorn](https://gunicorn.org/ "Gunicorn") - A widely used WSGI, perfect for working with frameworks like Django
 
-- [Psycopg2]([https://pypi.org/project/psycopg2/] "Psycopg2") - A PostgreSQL adapter which allows for python based applications to communicate with PostgreSQL databases.
+- [Psycopg2](https://pypi.org/project/psycopg2/ "Psycopg2") - A PostgreSQL adapter which allows for python based applications to communicate with PostgreSQL databases.
 
-- [Google Fonts]([https://fonts.google.com/] "Google Fonts") - A great tool to be able to see samples of what text you'd want on your website.
+- [Google Fonts](https://fonts.google.com/ "Google Fonts") - A great tool to be able to see samples of what text you'd want on your website.
 
-- [React-Bootstrap]([https://react-bootstrap-v4.netlify.app/] "React-Bootstrap") - Bootstrap but for react, I used it for an an easy and efficient way to create a clean responsive website.
+- [React-Bootstrap](https://react-bootstrap-v4.netlify.app/ "React-Bootstrap") - Bootstrap but for react, I used it for an an easy and efficient way to create a clean responsive website.
 
-- [React Toastify]([https://www.npmjs.com/package/react-toastify] "React Toastify") - An amazing library that makes adding a toast onto any element much simpler. 
+- [React Toastify](https://www.npmjs.com/package/react-toastify "React Toastify") - An amazing library that makes adding a toast onto any element much simpler. 
 
 ### Tools
 
-- [GitPod]([https://www.gitpod.io/] "GitPod") - Cloudbased IDE, great for collaborative software development.
+- [GitPod](https://www.gitpod.io/ "GitPod") - Cloudbased IDE, great for collaborative software development.
 
-- [GitHub]([https://github.com/] "GitHub") - a website that aids software development and version control.
+- [GitHub](https://github.com/ "GitHub") - a website that aids software development and version control.
 
-- [Git]([https://git-scm.com/] "Git") - version control system that tracks changes in source code in the development phase.
+- [Git](https://git-scm.com/ "Git") - version control system that tracks changes in source code in the development phase.
 
-- [Heroku]([https://www.heroku.com] "Heroku") - cloud based platform for deploying applications.
+- [Heroku](https://www.heroku.com "Heroku") - cloud based platform for deploying applications.
 
-- [ElephantSQL]([https://www.elephantsql.com/] "ElephantSQL") - cloud based PostgreSQL database service
+- [ElephantSQL](https://www.elephantsql.com/ "ElephantSQL") - cloud based PostgreSQL database service
 
-- [SQLite3]([https://www.sqlite.org/index.html] "SQLite3") - a serverless open-source database, perfect for local development.
+- [SQLite3](https://www.sqlite.org/index.html "SQLite3") - a serverless open-source database, perfect for local development.
 
-- [FontAwesome]([https://fontawesome.com/] "FontAwesome") - one of the best things ever, every single icon you need is in here.
+- [FontAwesome](https://fontawesome.com/ "FontAwesome") - one of the best things ever, every single icon you need is in here.
 
-- [AmIResponsive]([https://ui.dev/amiresponsive] "AmIResponsive") - a great tool for your projects, shows you what you application looks like on different screen sizes.
+- [AmIResponsive](https://ui.dev/amiresponsive "AmIResponsive") - a great tool for your projects, shows you what you application looks like on different screen sizes.
 
-- [Balsamiq]([https://balsamiq.com/wireframes/?gad=1&gclid=CjwKCAjwr_CnBhA0EiwAci5sikJlbA3yk1dYGRdNiY0Krv7_98bWbqabFd_DxfjzG1-J7kWnl2-byhoC2cIQAvD_BwE] "Balsamiq") - A programme for wireframing and prototyping, just the thing you need to plan out your projects.
+- [Balsamiq](https://balsamiq.com/wireframes/?gad=1&gclid=CjwKCAjwr_CnBhA0EiwAci5sikJlbA3yk1dYGRdNiY0Krv7_98bWbqabFd_DxfjzG1-J7kWnl2-byhoC2cIQAvD_BwE "Balsamiq") - A programme for wireframing and prototyping, just the thing you need to plan out your projects.
 
-- [W3C CSS Validator]([https://jigsaw.w3.org/css-validator/] "W3C CSS Validator") - validates your CSS
+- [W3C CSS Validator](https://jigsaw.w3.org/css-validator/ "W3C CSS Validator") - validates your CSS
 
-- [CI pep8 linter]([https://pep8ci.herokuapp.com/] "CI pep8 linter") - validates your python code
+- [CI pep8 linter](https://pep8ci.herokuapp.com/ "CI pep8 linter") - validates your python code
 
-- [JShint linter]([https://jshint.com/] "JShint linter") - validates your JS/React code.
+- [JShint linter](https://jshint.com/ "JShint linter") - validates your JS/React code.
 
-- [Lighthouse]([https://developer.chrome.com/docs/lighthouse/overview/] "Lighthouse") - reviews accessibility and shows best practises to make application viable on all platforms.
+- [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview/ "Lighthouse") - reviews accessibility and shows best practises to make application viable on all platforms.
 
-- [Lucid Chart]([https://www.lucidchart.com/pages/] "Lucid Chart") - A tool to be able to create database diagrams and relationships.
+- [Lucid Chart](https://www.lucidchart.com/pages/ "Lucid Chart") - A tool to be able to create database diagrams and relationships.
 
 ## Testing 
 
@@ -723,7 +723,7 @@ If you would like to fork any repositories, follow the steps below:
 
 - Log in to **GitHub**.
 
-- Navigate to the [GlowByStef]([[https://github.com/AlexAntony3/glowbystef] "glowbystef").
+- Navigate to the [GlowByStef](https://github.com/AlexAntony3/glowbystef "glowbystef").
 
 - At the top of the page, locate the **fork** icon
 
@@ -743,7 +743,7 @@ If you would like to clone any repositories, follow the steps below:
 
 - Log in to **GitHub**
 
-- Access the required repository or my repository by clicking the following link: [GlowByStef]([[https://github.com/AlexAntony3/glowbystef] "GlowByStef")
+- Access the required repository or my repository by clicking the following link: [GlowByStef](https://github.com/AlexAntony3/glowbystef "GlowByStef")
 
 - Click on the `<> Code` button.
 
@@ -783,7 +783,7 @@ When creating a superuser, enter a username, email (optional) and password twice
 
 - now we're nearly done! in the **settings.py** add:
 
-> .[herokuapp.com]([http://herokuapp.com/] "Heroku"), localhost
+> .[herokuapp.com](http://herokuapp.com/ "Heroku"), localhost
 
 - Finally commit and push the changes and you're good to go!
 
@@ -791,7 +791,7 @@ When creating a superuser, enter a username, email (optional) and password twice
 
 ### Heroku Set up
 
-- Log in to your [Heroku]([[www.heroku.com] "Heroku") account and create an app. Choose an original name and select an appropriate region.
+- Log in to your [Heroku](www.heroku.com "Heroku") account and create an app. Choose an original name and select an appropriate region.
 
 - Go to the **settings** page and click **Reveal Config Vars** in the key and port values type the following:
 
@@ -851,7 +851,7 @@ For the completion of all my projects and not just this project, I want to thank
 
 - My family, for giving me ideas, helping with questionnaires and testing my projects
 
-- My mentor [Simen Daehlin]([[https://www.linkedin.com/in/simendaehlin/] "Simen Daehlin"), for always making sure that I'm pushing myself and not taking the easy way out. Thank you for the constant guidance and advice.
+- My mentor [Simen Daehlin](https://www.linkedin.com/in/simendaehlin/ "Simen Daehlin"), for always making sure that I'm pushing myself and not taking the easy way out. Thank you for the constant guidance and advice.
 
 - The slack team, helping with multiple issues I had.
 
