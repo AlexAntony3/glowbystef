@@ -23,6 +23,7 @@ const Home = () => {
           <Image
             src="https://res.cloudinary.com/daeryvqkx/image/upload/v1701124432/banner_ljq0jk.jpg"
             className={`${appStyles.FullWidth} ${styles.NoSpacing}`}
+            alt="Cover image of scissors"
           />
         </Col>
       </Row>
@@ -38,6 +39,7 @@ const Home = () => {
             <Image className="rounded"
               src="https://res.cloudinary.com/daeryvqkx/image/upload/v1701125618/dp_sp8lqu.jpg"
               fluid
+              alt="picture of me"
             />
           </Col>
           <Col sm={12} lg={6}>

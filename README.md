@@ -29,7 +29,7 @@ This system allowed me to write in all my user stories and then make sure that a
 
 The MoSCoW method of prioritisation was used in this projection in conjunction with the Kanban system. All issues and items added to the board contained a label which detailed if the item was a **must have** **should have** **could have**. More priority and time were given to the must have and vice versa for the could have items.
 
-(Add picture of kanban with labels here)
+![KanBan](docs/kanban.png)
 
 ## User Experience (UX)
 
@@ -455,7 +455,10 @@ These features are important aspects to make a more refined and finished product
 
 - [Lighthouse]([[https://developer.chrome.com/docs/lighthouse/overview/] "Lighthouse") - reviews accessibility.
 
-## Testing
+## Testing 
+
+The back end testing and front end testing was separately and combined to see what the overall result would be, especially to test out the CRUD functionalities. 
+
 
 ### All users
 
@@ -488,15 +491,34 @@ These features are important aspects to make a more refined and finished product
 | Content: Click on Sign up page | Sign up section with an image on the right hand side | Pass |
 | Content: Click on Sign in page | Sign in section with an image on the right hand side | Pass |
 | Click on the like button | A message appears saying log in to like | Pass |
-| Attempt to access a user restricted URL | Redirected to home page | Pass
+| Attempt to access a user restricted URL | Redirected to home page | Pass |
+| Attempt to access a user restricted URL in the backend | Not authenticated to access the admin page | Pass |
 
 ### Logged in Users
 
 | Test | Outcome | Pass or Fail |
 | ---------------------------------------- | ------------------------------------------------------------------------- | ------------ |
+| Backend: review services list view | list view present with correct entries| Pass |
+| Backend: review services detail view | detail view present with correct entries | Pass |
+| Backend: review reviews list view | list view present with correct entries| Pass |
+| Backend: review reviews detail view | detail view present with correct entries | Pass |
+| Backend: review galleries list view | list view present with correct entries| Pass |
+| Backend: review galleries detail view | detail view present with correct entries | Pass |
+| Backend: review likes list view | list view present with correct entries| Pass |
+| Backend: review likes detail view | detail view present with correct entries | Pass |
+| Backend: review profiles list view | list view present with correct entries| Pass |
+| Backend: review profiles detail view | detail view present with correct entries | Pass |
 | On the gallery page, click on the filter icon | All filterable elements and upload button present | Pass |
 | On the gallery page, click on the filter icon again | Filterable elements disappear | Pass |
 | On the gallery page, with the filter on, search a present image and click search | relevant images appear | Pass |
+| create a service in the back end | new service updated | Pass |
+| edit a service in the back end | service updated with new details | Pass |
+| delete a service in the back end | service deleted | Pass |
+| create a gallery to the back end | new gallery image appears | Pass |
+| edit a gallery item in the back end | gallery updated with new details | Pass |
+| delete a gallery item in the back end | gallery deleted | Pass |
+| check order of gallery posts | ordered by created at date | Pass |
+| create a new profile | Backend shows username info for new sign in | Pass |
 | search a non-present image and click search | no image found image appear | Pass |
 | search any value and press enter | required search result is progressed | Pass |
 | click on the liked button | only images the user has liked appears | Pass |
@@ -506,10 +528,13 @@ These features are important aspects to make a more refined and finished product
 | select an image to upload | preview of image shown on the application | Pass |
 | click on the cancel button | redirected to gallery page | Pass |
 | click on the create button | redirected to gallery page & uploaded image visible | Pass |
+| Check back end for frontend created image | image details present | Pass |
 | click on the update button on users gallery image | redirected to the update page , and previous information prior to update is present | Pass |
+| Check back end for frontend updated image | image details present | Pass |
 | click on the cancel button | redirected to gallery page & no changes made to image| Pass |
 | click on the save button | redirected to gallery page & updated details visible | Pass |
 | click on the delete button button | gallery page updated with deleted image not being present. | Pass |
+| Check back end for frontend deleted image | image details not-present | Pass |
 | click on the edit button on another user's post | no button present | Pass |
 | click on the delete button on another user's post | no button present | Pass |
 | access another users image by manually accessing the URL /gallery/update/{id} | user redirected to home page | Pass |
@@ -520,9 +545,17 @@ These features are important aspects to make a more refined and finished product
 
 ### Lighthouse testing
 
-(add screenshot)
+#### Desktop
+
+![Desktop](docs/lighthousedesktop.png)
+
+#### Mobile
+
+![Mobile](docs/lighthousemobile.png)
 
 As the screenshot below shows, the lighthouse testing is successful and has a high rating for accessibility. This means that a user who is impaired in any nature is able to access the application and know what is happening.
+
+The performance rating however is low, and at random points of testing, even lower results were observed at close to 40. The main concerns observed were that the images were too large for the document being loaded. Due to time constraints, I wasn't able to focus too heavily on this but I plan on fixing this in the future.
 
 ### JShint testing
 
@@ -620,9 +653,13 @@ On random occasions when liking a post the page is not responsive and then goes 
 
 Also at random occurrences, when a user searches for a gallery image, the not found icon appears for a split second which immediately moves onto the correct search result. Again this could not be recreated and no errors occurred therefore a fix could not be implemented.
 
+The images uploaded on the website were too large and therefore has caused some issues with loading speed, this is a hinderance for usability however, due to time constrains I was not able to deal with the situation sufficiently. 
+
 ## User Story Reflection
 
 Upon reflecting on the user stories set at the start of the project, I was not able to meet all the goals I set out to. This is due to multiple reasons such as bugs taking a long time to fix and also because of time constraints outside of the coding environment. However, I am proud to say that this is a good start and a solid backbone for me to be able to add more functions and capabilities. I plan to continue working on this project to make it an application that is perfect for the purpose. The back end of the project contains all the requirements necessary to implement these functionalities.
+
+The application has a clear navigation pathway for all users, whether they are logged in or not. The navigation is responsive and easy to use (user story 12). The application is presented clearly (user stories 1, 6, 7, 9), using contrasting colour schemes and clear text. A user is able to log in to their account or sign up if not done previously and when done so, they are notified (user stories 2, 3, 4, 5, 21, 10). This is also reflected when a logged in user, logs out. The user is able to view services that Stef provides(user stories 7, 22), this covers the title, description and image and price. The user can complete full CRUD functionality on gallery images (user stories 19, 23, 26, 27, 28, 29, 30), therefore, they are able to create, read, update and delete their own gallery images. A user is also able to like specific images which go up in count when liked and down in count when unliked( partial completion of user story 14). The user can filter through the results of the page by either selecting liked, so only having liked images or search specific results. All of these aspects are notified to users.
 
 The user stories I was not able to fulfil were:
 
@@ -636,15 +673,11 @@ The user stories I was not able to fulfil were:
 
 - As a logged in user, I want to be able to delete my review so that I can remove it from being seen.
 
-- As a logged in user, I want to have a success message displayed when I log in so that I am aware that the log in was successful.
-
 - As a logged in user, I want the corresponding accessible profile picture to appear so that I am aware that I am logged in to the correct account.
 
 - As a logged in user, I want to access my profile data when I click on the profile image so that I can see the profile details.
 
 All other aspects that were targeted have been met to the best of my capabilities
-
-[ add numbers ]
 
 ## Deployment
 
@@ -714,7 +747,7 @@ When creating a superuser, enter a username, email (optional) and password twice
 
 - now we're nearly done! in the **settings.py** add:
 
-> .[[herokuapp.com]([http://herokuapp.com/] "Heroku"), localhost
+> .[herokuapp.com]([http://herokuapp.com/] "Heroku"), localhost
 
 - Finally commit and push the changes and you're good to go!
 
