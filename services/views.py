@@ -1,8 +1,13 @@
 from django.db.models import Count
-from rest_framework import permissions, generics, filters
-from .models import Service, Review
-from .serializers import ServiceSerializer, ReviewSerializer, ReviewDetailSerializer
+from rest_framework import generics, filters
+from rest_framework.permissions import IsAuthenticated
 from gbs_api.permissions import IsOwnerOrReadOnly
+from .models import Service, Review
+from .serializers import (
+    ServiceSerializer,
+    ReviewSerializer,
+    ReviewDetailSerializer
+)
 
 
 class ServiceList(generics.ListCreateAPIView):
@@ -25,8 +30,8 @@ class ServiceList(generics.ListCreateAPIView):
     ]
 
 
-    def perform_create(self, serializer):
-        serializer.save()
+def perform_create(self, serializer):
+    serializer.save()
 
 
 class ServiceDetail(generics.RetrieveDestroyAPIView):

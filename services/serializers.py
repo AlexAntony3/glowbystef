@@ -17,7 +17,7 @@ class ServiceSerializer(serializers.ModelSerializer):
             'id', 'name', 'description', 'price', 'image',
             'review_id', 'reviews_count'
         ]
-    
+
     def get_review_id(self, obj):
         user = self.context['request'].user
         if user.is_authenticated:
@@ -28,11 +28,9 @@ class ServiceSerializer(serializers.ModelSerializer):
         return None
 
 
-
-
 class ReviewSerializer(serializers.ModelSerializer):
     """
-    serializer for the reviews 
+    serializer for the reviews
     """
     owner = serializers.ReadOnlyField(source='owner.username')
     is_owner = serializers.SerializerMethodField()
@@ -51,7 +49,7 @@ class ReviewSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError(
                 'The review can only have a maximum of 800 characters.'
             )
-        
+
         return value
 
     def get_is_owner(self, obj):
@@ -68,5 +66,7 @@ class ReviewSerializer(serializers.ModelSerializer):
             'is_owner', 'profile_id', 'profile_image', 'rating_filter',
         ]
 
+
 class ReviewDetailSerializer(ReviewSerializer):
     service = serializers.ReadOnlyField(source='review.id')
+    

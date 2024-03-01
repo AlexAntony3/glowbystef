@@ -1,7 +1,7 @@
 
 # GlowByStef
 
-(Add image of different screen sizes display)
+![AmIResponsive](docs/amiresponsive.png)
 
 ## Introduction
 

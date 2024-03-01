@@ -39,7 +39,7 @@ class GalleryDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = GallerySerializer
     queryset = Gallery.objects.all()
 
-    
+
 class LikeList(generics.ListCreateAPIView):
     permission_classes = [
         permissions.IsAuthenticatedOrReadOnly

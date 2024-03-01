@@ -14,7 +14,7 @@ class GallerySerializer(serializers.ModelSerializer):
     class Meta:
         model = Gallery
         fields = [
-            'id' , 'created_at', 'description',
+            'id', 'created_at', 'description',
             'image', 'title', 'like_id', 'likes_count',
             'is_owner',
         ]
@@ -32,7 +32,6 @@ class GallerySerializer(serializers.ModelSerializer):
     def get_is_owner(self, obj):
         request = self.context['request']
         return request.user == obj.owner
-
 
 
 class LikeSerializer(serializers.ModelSerializer):
