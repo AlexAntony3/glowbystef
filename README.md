@@ -467,6 +467,32 @@ These features are important aspects to make a more refined and finished product
 
 The back end testing and front end testing was separately and combined to see what the overall result would be, especially to test out the CRUD functionalities. 
 
+### Responsiveness Testing
+
+The breakpoints that were tested were through bootstrap recommendations. 
+
+| Screen Size | is it responsive? |
+|--|--|
+| <576px | Yes |
+| ≥576px | Yes |
+| ≥768px | Yes |
+| ≥992px | Yes |
+| ≥1200px | Yes |
+| ≥1400px | Yes |
+
+All responsiveness tests passed. 
+
+### Browser Testing
+
+Three Browsers were tested to make sure they facilitate all functions required by the application and all aspects of the application are clear.
+
+| Browser | Result |
+|--|--|
+| Microsoft Edge | Pass |
+| Mozilla Firefox | Pass |
+| Google Chrome | Pass |
+
+All browser testing passed. 
 
 ### All users
 
