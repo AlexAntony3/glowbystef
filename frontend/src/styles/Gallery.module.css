@@ -29,6 +29,7 @@
 
 .LikeButton :hover{
   color:red !important;
+  background-image: none !important;
 }
 
 .HeartFill {
